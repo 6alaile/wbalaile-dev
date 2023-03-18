@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>6alaile Trades Telegram - Registration</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      #app {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+      }
+
+      button {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        background-color: #4caf50;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #3e8e41;
+      }
+
+      .success-message {
+        padding: 10px;
+        background-color: #dff0d8;
+        border-radius: 5px;
+        border: 1px solid #d6e9c6;
+        color: #3c763d;
+        margin-bottom: 20px;
+      }
+
+      .error-message {
+        padding: 10px;
+        background-color: #f2dede;
+        border-radius: 5px;
+        border: 1px solid #ebccd1;
+        color: #a94442;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Registration Page</h1>
+
+      <form>
+        <label for="accountNumber">Account Number:</label>
+        <input type="text" id="accountNumber" v-model="accountNumber">
+        <button @click.prevent="register">Register</button>
+      </form>
+
+      <div v-if="successMessage" class="success-message">{{ successMessage }}</div>
+      <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          accountNumber: "",
+          successMessage: "",
+          errorMessage: ""
+        },
+        methods: {
+          async register() {
+            try {
+              const response = await fetch(
+                `https://api.exness.com/api/v1/check-account/${this.accountNumber}`
+              );
+
+              const data = await response.json();
+
+              if (data.result === "ok") {
+                this.successMessage = "Registration successful!";
+                this.errorMessage = "";
+              } else {
+                this.successMessage = "";
+                this.errorMessage = "Account number is invalid, please try again.";
+              }
+            } catch (error) {
+              console.error(error);
+              this.successMessage = "";
+              this.errorMessage = "An error occurred while registering. Please try again later.";
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
