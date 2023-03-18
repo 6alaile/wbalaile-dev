@@ -1,3 +1,3 @@
 ### wbalaile-dev
 
-Professional Web Developer portfolio site for William Balaile.
+Portfolio site for William Balaile.
