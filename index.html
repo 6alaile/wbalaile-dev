@@ -1,12 +1,511 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-<title>My Website</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RYBRR9FYXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RYBRR9FYXX');
+  </script>
+
+  <title>William Mujuni Balaile | Full Stack Web Developer</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="William Mujuni Balaile portfolio website.">
+  <meta name="keywords" content="William Mujuni Balaile, Balaile, Web Developer, Front End Developer, Back End Developer, Fullstack Developer, Tanzania, Dar es Salaam">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet"> 
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- CDN --> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
 </head>
+
 <body>
-<p> Hii ni tovuti.</p>
-<P style="color:red;"> Text </p>
-<img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=873&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="assets/img/profile.jpg" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="index.html">William Balaile</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="https://www.linkedin.com/in/william-balaile-55426b133/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          <a href="https://github.com/6alaile?tab=repositories" class="github"><i class="bx bxl-github"></i></a>
+        </div>
+      </div>
+ 
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Projects</span></a></li>
+          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Skills</span></a></li>
+          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="https://6alailetrades.notion.site" class="nav-link scrollto"><i class="bx bx-form"></i> <span>6alaile Trades</span></a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>Full Stack Developer</h1>
+      <p> <span class="typed" data-typed-items="Website Development, Web Applications, Server Management"></span></p>
+    </div>
+  </section>
+  <!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Projects</h2>
+          <p>
+            Finding ways to combine the skills learned with personal interests to create meaningful projects 
+            is a continious challenge that is an incredibly fun way to meet people and exercise creativity. 
+            Below is a collection of some projects that I have been involved in.
+          </p>
+        </div>
+
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-front-end">Front End</li>
+              <li data-filter=".filter-back-end">Back End</li>
+              <li data-filter=".filter-full-stack">Full Stack</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-front-end">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/risk-management-calculator.png" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/risk-management-calculator.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Risk Management Calculator; Client Side/Front-End Web Application"><i class="bx bx-zoom-in"></i>View Image</a>
+                <a href="pages/forex-calculator.html" title="View Project"><i class="bx bx-link"></i>View Project</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-full-stack">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/token-bscscan.png" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/token-bscscan.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="MojaCoin - BEP20 Token; Smart Contract/Web3"><i class="bx bx-zoom-in"></i>View Image</a>
+                <a href="pages/mojaCoin-token.html" title="View Project"><i class="bx bx-link"></i>View Project</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-back-end">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/football-odds-ai-repo.png" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/football-odds-ai-repo.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Football Odds AI; Server Side/Back-End Web Application"><i class="bx bx-zoom-in"></i>View Image</a>
+                <a href="pages/football-odds-ai.html" title="More Details"><i class="bx bx-link"></i>View Project</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Space to add completed projects -->
+          <!--
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-back-end">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title=" API"><i class="bx bx-plus"></i></a>
+                <a href="pages/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-full-stack">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title=" Shopify Store"><i class="bx bx-plus"></i></a>
+                <a href="pages/video-production.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-front-end">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="6alaile - NFT Minter; web3 DApp"><i class="bx bx-plus"></i></a>
+                <a href="pages/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-full-stack">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title=" MEVN"><i class="bx bx-plus"></i></a>
+                <a href="pages/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-front-end">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Webflow UI ; "><i class="bx bx-plus"></i></a>
+                <a href="pages/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-programming filter-back-end">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="MT5 to Telegram; Expert Advisor (Trading Robot)"><i class="bx bx-plus"></i></a>
+                <a href="pages/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        -->
+      </div>
+    </section>
+    <!-- End Portfolio Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Skills Acquired</h2>
+          <p>
+            An overview of the role I can fill in a development team. While acquiring these skills 
+            was a journey of its own, I am happy to begin another where I share them with you.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+            <div class="icon"><i class="bi bi-file-earmark-code"></i></div>
+            <h4 class="title"><a href="">Website Development & Management</a></h4>
+            <p class="description">
+              Website development using modern programming languages.<br>
+              Web application development using friendly no-code systems.<br>
+              Server management and security using cPanel. 
+            </p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon"><i class="bi bi-link"></i></div>
+            <h4 class="title"><a href="">BUIDL</a></h4>
+            <p class="description">
+              Writing smart contracts that run on EVM-compatible blockchains. <br>
+              These decentralized applications (dApps) uses include DeFi, NFTs.
+            </p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon"><i class="bi bi-bar-chart"></i></div>
+            <h4 class="title"><a href="">Technical Analysis</a></h4>
+            <p class="description">
+              Reading and marking up price charts. <br>
+            </p>
+        </div>
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+          <div class="icon"><i class="bi bi-gear"></i></div>
+          <h4 class="title"><a href="">Content Creation</a></h4>
+          <p class="description">
+            Video. <br>
+            Images. <br>
+            Audio.
+          </p>
+        </div>
+        
+      </div>
+    </section>
+    <!-- End Services Section -->
+
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h4>Tools and Technologies</h4>
+            Below are tools and technologies that I am comfortable and competent with.
+          </p>
+        </div>
+
+        <div class="row skills-content">
+
+          <!-- Skills list -->
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="progress">
+              <span class="skill">Languages<i class="val"></i></span>
+              <span class="skill-desc">HTML, CSS, JavaScript, Python, SQL, Solidity</span>
+            </div>
+          </div>          
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">           
+            <div class="progress">
+              <span><img src="assets/icons/html5-svgrepo-com.svg" alt="HTML5 Icon"> </span>
+              <span><img src="assets/icons/css3-svgrepo-com.svg" alt="CSS3 Icon"> </span>
+              <span><img src="assets/icons/javascript-svgrepo-com.svg" alt="JavaScript Icon"> </span>
+              <span><img src="assets/icons/python-svgrepo-com.svg" alt="Python Icon"> </span>
+              <span><img src="assets/icons/sql-svgrepo-com.svg" alt="SQL Icon"> </span>
+              <span><img src="assets/icons/light-solidity-svgrepo-com.svg" alt="Solidity Icon" height="24px" width="24px"> </span>
+            </div>        
+          </div>
+          
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="progress">
+              <span class="skill">Frameworks<i class="val"></i></span>
+              <span class="skill-desc">Bootstrap, Vue.js, Express.js, Django</span>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">           
+            <div class="progress">
+              <span><img src="assets/icons/bootstrap-svgrepo-com.svg" alt="Bootstrap Icon"> </span>
+              <span><img src="assets/icons/vue-dot-js-svgrepo-com.svg" alt="Vue.js Icon"> </span>
+              <span><img src="assets/icons/express-svgrepo-com.svg" alt="Express.js Icon"> </span>
+              <span><img src="assets/icons/django-svgrepo-com.svg" alt="Django Icon"> </span>
+            </div>      
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="progress">
+              <span class="skill">Databases<i class="val"></i></span>
+              <span class="skill-desc">MongoDB, MySQL</span>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">           
+            <div class="progress">
+              <span><img src="assets/icons/mongodb-svgrepo-com.svg" alt="MondoDB Icon"> </span>
+              <span><img src="assets/icons/mysql-svgrepo-com.svg" alt="MySQL Icon"> </span>
+            </div>      
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="progress">
+              <span class="skill">Software<i class="val"></i></span>
+              <span class="skill-desc">CPanel, Shopify, Webflow, Github, Node.js, Hardhat</span>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">           
+            <div class="progress">
+              <span><img src="assets/icons/cpanel-svgrepo-com.svg" alt="CPanel"> </span>
+              <span><img src="assets/icons/shopify-svgrepo-com.svg" alt="Shopify Icon"> </span>
+              <span><img src="assets/icons/webflow-svgrepo-com.svg" alt="Webflow Icon" height="48px" width="48px"> </span>
+              <span><img src="assets/icons/github-svgrepo-com.svg" alt="Github Icon"> </span>
+              <span><img src="assets/icons/node-dot-js-svgrepo-com.svg" alt="Node.js Icon"> </span>
+              <span><img src="assets/icons/hardhat-seeklogo.com.svg" alt="Hardhat Icon" height="24px" width="48px"> </span>
+            </div>      
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End Skills Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Get in Touch</h2>
+          <p>
+            If you would like me to be a part of your next venture, send me an email or text. <br>
+            Let me know what the project is about, why you think my skills would be a great match 
+            and how my input can be leveraged to make it a reality.
+          </p>
+        </div>
+
+        <div class="row" data-aos="fade-in">
+
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>Dar es Salaam, Tanzania</p>
+              </div>
+
+              <div class="linkedin">
+                <i class="bi bi-linkedin"></i>
+                <h4>
+                  <a href="https://www.linkedin.com/in/william-balaile-55426b133/" class="linkedin">LinkedIn</a>
+                </h4>
+                <p>View CV</p>
+              </div>
+
+              <div class="github">
+                <i class="bi bi-github"></i>
+                <h4>
+                  <a href="https://github.com/6alaile?tab=repositories" class="github">Github</a>
+                </h4>
+                <p>View project source code</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form action="forms/contact.php" method="POST" role="form" class="php-email-form">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name/Company</label>
+                  <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="name">Your Email</label>
+                  <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">Subject</label>
+                <input type="text" id="subject" name="subject" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message">Your message has not been sent, please check all the fields and try again.</div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End Contact Section -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Behind the Screen</h2>
+          <p>
+            
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img src="assets/img/profile.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3>Meet the dev</h3>
+            <p class="fst-italic">
+            </p>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>5 February</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Hometown:</strong> <span>Dar es Salaam, Tanzania.</span></li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>:</strong> <span>Available</span></li>
+                </ul>
+              </div>
+            </div>
+            <p>
+              Apart from computers, football is a major part of my life.
+              <br>
+              <br>
+              Trading financial markets; including forex, indices and cryptocurrencies.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- End About Section -->
+    
+
+  </main>
+  <!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+    <!--
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>iPortfolio</span></strong>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. 
+        <!-- You can delete the links only if you purchased the pro version. 
+        <!-- Licensing information: https://bootstrapmade.com/license/ 
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ 
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer>
+    -->
+  <!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>
