@@ -8,12 +8,50 @@ const NAV_LINKS = [
   { label: 'Contact', href: '#contact' },
 ]
 
-const SKILLS = {
-  Languages: ['HTML', 'CSS', 'JavaScript', 'Python', 'SQL', 'Solidity'],
-  Frameworks: ['Vue.js', 'Express.js', 'Django', 'Bootstrap', 'React', 'Tailwind CSS'],
-  Databases: ['MongoDB', 'MySQL', 'PostgreSQL'],
-  Tools: ['Node.js', 'Hardhat', 'GitHub', 'Webflow', 'Shopify', 'cPanel', 'Vite'],
-}
+const SKILLS: { category: string; items: { name: string; icon?: string }[] }[] = [
+  {
+    category: 'Languages',
+    items: [
+      { name: 'HTML', icon: '/icons/html5-svgrepo-com.svg' },
+      { name: 'CSS', icon: '/icons/css3-svgrepo-com.svg' },
+      { name: 'JavaScript', icon: '/icons/javascript-svgrepo-com.svg' },
+      { name: 'Python', icon: '/icons/python-svgrepo-com.svg' },
+      { name: 'SQL', icon: '/icons/sql-svgrepo-com.svg' },
+      { name: 'Solidity', icon: '/icons/light-solidity-svgrepo-com.svg' },
+    ],
+  },
+  {
+    category: 'Frameworks',
+    items: [
+      { name: 'Vue.js', icon: '/icons/vue-dot-js-svgrepo-com.svg' },
+      { name: 'Express.js', icon: '/icons/express-svgrepo-com.svg' },
+      { name: 'Django', icon: '/icons/django-svgrepo-com.svg' },
+      { name: 'Bootstrap', icon: '/icons/bootstrap-svgrepo-com.svg' },
+      { name: 'React', icon: '/icons/react-svgrepo-com.svg' },
+      { name: 'Tailwind CSS', icon: '/icons/tailwind-svgrepo-com.svg' },
+    ],
+  },
+  {
+    category: 'Databases',
+    items: [
+      { name: 'MongoDB', icon: '/icons/mongodb-svgrepo-com.svg' },
+      { name: 'MySQL', icon: '/icons/mysql-svgrepo-com.svg' },
+      { name: 'PostgreSQL', icon: '/icons/postgresql-svgrepo-com.svg' },
+    ],
+  },
+  {
+    category: 'Tools',
+    items: [
+      { name: 'Node.js', icon: '/icons/node-dot-js-svgrepo-com.svg' },
+      { name: 'Vite', icon: '/icons/vite-svgrepo-com.svg' },
+      { name: 'GitHub', icon: '/icons/github-svgrepo-com.svg' },
+      { name: 'cPanel', icon: '/icons/cpanel-svgrepo-com.svg' },
+      { name: 'Webflow', icon: '/icons/webflow-svgrepo-com.svg' },
+      { name: 'Shopify', icon: '/icons/shopify-svgrepo-com.svg' },
+      { name: 'Hardhat', icon: '/icons/hardhat-seeklogo.com.svg' },
+    ],
+  },
+]
 
 const PROJECTS = [
   {
@@ -25,8 +63,10 @@ const PROJECTS = [
     img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=500&fit=crop&auto=format',
     url: 'https://forex-calculator.netlify.app',
     page: '/pages/forex-calculator.html',
+    category: 'Front-End Web Development, Web Design, Finance',
+    publishDate: '22 June, 2021',
     about:
-      'A calculator that can be used by traders to determine whether they can open a position based on the balance in their account. Built using HTML, CSS and JavaScript, with a layout based on Neuomorphic design principles.',
+      'A calculator that can be used by traders to determine whether they can open a position based on the balance in their account.\n\nThis tool was built using HTML, CSS and JavaScript. The source code can be found on Github. The layout is based on Neuomorphic design principles.',
   },
   {
     title: 'MojaCoin',
@@ -37,6 +77,8 @@ const PROJECTS = [
     img: 'https://images.unsplash.com/photo-1639762681057-408e52192e55?w=800&h=500&fit=crop&auto=format',
     url: 'https://github.com/wilby-mj/Moja-Coin',
     page: '/pages/mojaCoin-token.html',
+    category: 'Blockchain Development',
+    publishDate: '15 February, 2022',
     about:
       'MojaCoin is a cryptocurrency token built on the Binance Smart Chain using the BEP20 standard. As of writing the token has been deployed to the Testnet only and is available to view on BSCScan Testnet or the GitHub repo.',
   },
@@ -49,6 +91,8 @@ const PROJECTS = [
     img: 'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800&h=500&fit=crop&auto=format',
     url: 'https://github.com/wilby-mj/Foootball-Odds-AI',
     page: '/pages/football-odds-ai.html',
+    category: 'Back-End Development, Artificial Intelligence (AI), Football',
+    publishDate: 'ETA 2022',
     about:
       'A robot that scrapes betting sites in Tanzania and returns the events with the best odds. Built in Python using Django and Selenium.',
   },
@@ -266,43 +310,16 @@ function About() {
             Beyond engineering, I actively trade forex, indices, and crypto markets — giving me firsthand domain knowledge
             for building high-performance fintech dashboards and risk tools.
           </p>
-
-          <div className="flex flex-wrap gap-6 pt-4 border-t border-white/[0.08]">
-            <a
-              href="https://linkedin.com/in/william-balaile-55426b133/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={MONO}
-              className="text-xs tracking-widest uppercase text-[#88847f] hover:text-[#00e87a] transition-colors border-b border-white/[0.1] pb-1 hover:border-[#00e87a]"
-            >
-              LinkedIn ↗
-            </a>
-            <a
-              href="https://github.com/6alaile"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={MONO}
-              className="text-xs tracking-widest uppercase text-[#88847f] hover:text-[#00e87a] transition-colors border-b border-white/[0.1] pb-1 hover:border-[#00e87a]"
-            >
-              GitHub ↗
-            </a>
-            <a
-              href="https://wbalaile.is-a.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={MONO}
-              className="text-xs tracking-widest uppercase text-[#88847f] hover:text-[#00e87a] transition-colors border-b border-white/[0.1] pb-1 hover:border-[#00e87a]"
-            >
-              Website ↗
-            </a>
-          </div>
+          <p>
+            <img src="/profile.jpg" alt="William Balaile" className="rounded-lg shadow-lg" />
+          </p>
         </div>
 
         <div className="md:col-span-6 space-y-6">
           <p style={MONO} className="text-xs tracking-widest uppercase text-[#00e87a] mb-2">
             // technical skills
           </p>
-          {Object.entries(SKILLS).map(([category, items]) => (
+          {SKILLS.map(({ category, items }) => (
             <div key={category} className="bg-[#111111] p-5 border border-white/[0.08] rounded-xs">
               <p style={MONO} className="text-xs tracking-widest uppercase text-[#88847f] mb-3">
                 {category}
@@ -310,11 +327,14 @@ function About() {
               <div className="flex flex-wrap gap-2">
                 {items.map((skill) => (
                   <span
-                    key={skill}
+                    key={skill.name}
                     style={MONO}
-                    className="text-xs px-3 py-1 bg-[#181818] border border-white/[0.08] text-[#f0ede8] hover:border-[#00e87a]/40 transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs px-3 py-1 bg-[#181818] border border-white/[0.08] text-[#f0ede8] hover:border-[#00e87a]/40 transition-colors"
                   >
-                    {skill}
+                    {skill.icon && (
+                      <img src={skill.icon} alt="" className="w-5 h-5 brightness-0 invert opacity-70" />
+                    )}
+                    {skill.name}
                   </span>
                 ))}
               </div>
@@ -339,43 +359,76 @@ function ProjectModal({ project, onClose }: { project: typeof PROJECTS[number] |
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#080808]/90 backdrop-blur-sm"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#080808]/90 backdrop-blur-sm overflow-y-auto"
       onClick={onClose}
     >
       <div
-        className="bg-[#111111] border border-white/[0.08] max-w-lg w-full p-8 md:p-10 relative"
+        className="bg-[#111111] border border-white/[0.08] w-full max-w-5xl relative my-8"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
           aria-label="Close"
-          className="absolute top-4 right-4 text-[#88847f] hover:text-[#00e87a] transition-colors text-xl leading-none"
+          className="absolute top-4 right-4 z-10 text-[#88847f] hover:text-[#00e87a] transition-colors text-2xl leading-none cursor-pointer"
         >
           ×
         </button>
-        <p style={MONO} className="text-xs tracking-widest uppercase text-[#00e87a] mb-3">
-          {project.type}
-        </p>
-        <h3 style={MONO} className="text-xl md:text-2xl font-bold text-[#f0ede8] mb-5">
+
+        <h2 style={MONO} className="text-xl md:text-2xl font-bold text-[#f0ede8] px-8 pt-8 pb-6 border-b border-white/[0.08]">
           {project.title}
-        </h3>
-        <p className="text-sm text-[#a8a49e] font-light leading-relaxed mb-7">{project.about}</p>
-        <div className="flex flex-wrap gap-1.5 mb-8">
-          {project.tags.map((tag) => (
-            <span key={tag} style={MONO} className="text-xs px-2.5 py-1 bg-[#181818] text-[#88847f]">
-              {tag}
-            </span>
-          ))}
+        </h2>
+
+        <div className="grid md:grid-cols-12 gap-0">
+          <div className="md:col-span-8 p-8 border-r border-white/[0.08]">
+            <div className="bg-[#161616] overflow-hidden">
+              <img
+                src={project.img}
+                alt={project.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <div className="md:col-span-4 p-8 flex flex-col justify-between">
+            <div>
+              <p style={MONO} className="text-base font-bold text-[#f0ede8] mb-4">
+                Project Information
+              </p>
+              <div className="space-y-3 text-sm">
+                <div>
+                  <span style={MONO} className="text-[#a8a49e]">Category</span>
+                  <p className="text-[#f0ede8] mt-1">{project.category}</p>
+                </div>
+                <div>
+                  <span style={MONO} className="text-[#a8a49e]">Publish Date</span>
+                  <p className="text-[#f0ede8] mt-1">{project.publishDate}</p>
+                </div>
+                <div>
+                  <span style={MONO} className="text-[#a8a49e]">URL</span>
+                  <p className="mt-1">
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#00e87a] hover:underline break-all"
+                    >
+                      {project.url.replace(/^https?:\/\//, '')}
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <a
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={MONO}
-          className="inline-flex items-center gap-2 bg-[#00e87a] text-[#080808] px-6 py-3 text-xs font-bold tracking-widest uppercase hover:bg-[#00ff88] transition-all duration-150"
-        >
-          View Live ↗
-        </a>
+
+        <div className="px-8 py-8 border-t border-white/[0.08]">
+          <h3 style={MONO} className="text-lg font-bold text-[#f0ede8] mb-4">
+            {project.title}
+          </h3>
+          <p className="text-sm text-[#a8a49e] font-light leading-relaxed whitespace-pre-line">
+            {project.about}
+          </p>
+        </div>
       </div>
     </div>
   )
@@ -598,7 +651,7 @@ function Contact() {
                 Direct Email
               </p>
               <a
-                href="mailto:hello@wbalaile.is-a.dev"
+                href="mailto:wbalaile@live.com"
                 style={MONO}
                 className="text-[#f0ede8] hover:text-[#00e87a] transition-colors text-sm font-semibold"
               >
@@ -611,9 +664,9 @@ function Contact() {
               </p>
               <div className="flex flex-wrap gap-5">
                 {[
-                  { label: 'GitHub', href: 'https://github.com/6alaile' },
-                  { label: 'LinkedIn', href: 'https://linkedin.com/in/william-balaile-55426b133/' },
-                  { label: 'Trading', href: 'https://6alailetrades.notion.site' },
+                  { icon: '/icons/github-svgrepo-com.svg', label: 'GitHub', href: 'https://github.com/6alaile' },
+                  { icon: '/icons/linkedin-svgrepo-com.svg', label: 'LinkedIn', href: 'https://linkedin.com/in/william-balaile-55426b133/' },
+                  { icon: '/icons/notion-svgrepo-com.svg', label: 'Trading', href: 'https://6alailetrades.notion.site' },
                 ].map((l) => (
                   <a
                     key={l.label}
@@ -717,7 +770,7 @@ function Footer() {
           WB<span className="text-[#00e87a]">.</span>
         </a>
         <p style={MONO} className="text-xs text-[#88847f] tracking-widest text-center">
-          © 2026 William Mujuni Balaile — Dar es Salaam, TZ
+          © 2026 William Mujuni Balaile
         </p>
         <div className="flex items-center gap-6">
           <a
