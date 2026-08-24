@@ -60,13 +60,19 @@ const PROJECTS = [
     description:
       'A precision forex risk calculator built for traders to size positions, manage drawdown, and protect capital across currency pairs.',
     tags: ['JavaScript', 'HTML/CSS', 'Trading'],
-    img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=500&fit=crop&auto=format',
+    img: '/portfolio/risk-management-calculator-3-active.png',
     url: 'https://forex-calculator.netlify.app',
     page: '/pages/forex-calculator.html',
     category: 'Front-End Web Development, Web Design, Finance',
     publishDate: '22 June, 2021',
     about:
       'A calculator that can be used by traders to determine whether they can open a position based on the balance in their account.\n\nThis tool was built using HTML, CSS and JavaScript. The source code can be found on Github. The layout is based on Neuomorphic design principles.',
+    images: [
+      '/portfolio/risk-management-calculator-1.png',
+      '/portfolio/risk-management-calculator-2-intructions.png',
+      '/portfolio/risk-management-calculator-3-active.png',
+      '/portfolio/risk-management-calculator-4-github.png',
+    ],
   },
   {
     title: 'MojaCoin',
@@ -81,6 +87,7 @@ const PROJECTS = [
     publishDate: '15 February, 2022',
     about:
       'MojaCoin is a cryptocurrency token built on the Binance Smart Chain using the BEP20 standard. As of writing the token has been deployed to the Testnet only and is available to view on BSCScan Testnet or the GitHub repo.',
+    images: [],
   },
   {
     title: 'Football Odds AI',
@@ -95,6 +102,7 @@ const PROJECTS = [
     publishDate: 'ETA 2022',
     about:
       'A robot that scrapes betting sites in Tanzania and returns the events with the best odds. Built in Python using Django and Selenium.',
+    images: [],
   },
 ]
 
@@ -347,13 +355,22 @@ function About() {
 }
 
 function ProjectModal({ project, onClose }: { project: typeof PROJECTS[number] | null; onClose: () => void }) {
+  const [slide, setSlide] = useState(0)
+  const hasSlides = project && project.images.length > 0
+
+  useEffect(() => {
+    setSlide(0)
+  }, [project])
+
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
+      if (hasSlides && e.key === 'ArrowRight') setSlide((s) => (s + 1) % project!.images.length)
+      if (hasSlides && e.key === 'ArrowLeft') setSlide((s) => (s - 1 + project!.images.length) % project!.images.length)
     }
     if (project) window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
-  }, [project, onClose])
+  }, [project, onClose, hasSlides])
 
   if (!project) return null
 
@@ -380,12 +397,48 @@ function ProjectModal({ project, onClose }: { project: typeof PROJECTS[number] |
 
         <div className="grid md:grid-cols-12 gap-0">
           <div className="md:col-span-8 p-8 border-r border-white/[0.08]">
-            <div className="bg-[#161616] overflow-hidden">
-              <img
-                src={project.img}
-                alt={project.title}
-                className="w-full h-full object-cover"
-              />
+            <div className="bg-[#161616] overflow-hidden relative">
+              {hasSlides ? (
+                <>
+                  <img
+                    src={project.images[slide]}
+                    alt={`${project.title} — slide ${slide + 1}`}
+                    className="w-full object-cover transition-opacity duration-300"
+                  />
+                  <button
+                    onClick={() => setSlide((s) => (s - 1 + project.images.length) % project.images.length)}
+                    aria-label="Previous image"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center bg-[#080808]/80 text-[#f0ede8] hover:bg-[#00e87a] hover:text-[#080808] transition-colors cursor-pointer text-sm"
+                  >
+                    ‹
+                  </button>
+                  <button
+                    onClick={() => setSlide((s) => (s + 1) % project.images.length)}
+                    aria-label="Next image"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center bg-[#080808]/80 text-[#f0ede8] hover:bg-[#00e87a] hover:text-[#080808] transition-colors cursor-pointer text-sm"
+                  >
+                    ›
+                  </button>
+                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+                    {project.images.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setSlide(i)}
+                        aria-label={`Go to image ${i + 1}`}
+                        className={`w-2.5 h-2.5 rounded-full transition-colors cursor-pointer ${
+                          i === slide ? 'bg-[#00e87a]' : 'bg-white/30 hover:bg-white/60'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <img
+                  src={project.img}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+              )}
             </div>
           </div>
 
@@ -666,7 +719,6 @@ function Contact() {
                 {[
                   { icon: '/icons/github-svgrepo-com.svg', label: 'GitHub', href: 'https://github.com/6alaile' },
                   { icon: '/icons/linkedin-svgrepo-com.svg', label: 'LinkedIn', href: 'https://linkedin.com/in/william-balaile-55426b133/' },
-                  { icon: '/icons/notion-svgrepo-com.svg', label: 'Trading', href: 'https://6alailetrades.notion.site' },
                 ].map((l) => (
                   <a
                     key={l.label}
@@ -674,8 +726,9 @@ function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     style={MONO}
-                    className="text-[#a8a49e] hover:text-[#00e87a] transition-colors text-xs tracking-widest uppercase"
+                    className="inline-flex items-center gap-2 text-[#a8a49e] hover:text-[#00e87a] transition-colors text-xs tracking-widest uppercase"
                   >
+                    <img src={l.icon} alt="" className="w-4 h-4 brightness-0 invert opacity-70" />
                     {l.label} ↗
                   </a>
                 ))}
@@ -778,8 +831,9 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             style={MONO}
-            className="text-xs tracking-widest uppercase text-[#88847f] hover:text-[#00e87a] transition-colors"
+            className="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-[#88847f] hover:text-[#00e87a] transition-colors"
           >
+            <img src="/icons/github-svgrepo-com.svg" alt="" className="w-4 h-4 brightness-0 invert opacity-50" />
             GitHub
           </a>
           <a
@@ -787,8 +841,9 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             style={MONO}
-            className="text-xs tracking-widest uppercase text-[#88847f] hover:text-[#00e87a] transition-colors"
+            className="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-[#88847f] hover:text-[#00e87a] transition-colors"
           >
+            <img src="/icons/linkedin-svgrepo-com.svg" alt="" className="w-4 h-4 brightness-0 invert opacity-50" />
             LinkedIn
           </a>
           <a
