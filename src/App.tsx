@@ -62,7 +62,6 @@ const PROJECTS = [
     tags: ['JavaScript', 'HTML/CSS', 'Trading'],
     img: '/portfolio/risk-management-calculator-3-active.png',
     url: 'https://forex-calculator.netlify.app',
-    page: '/pages/forex-calculator.html',
     category: 'Front-End Web Development, Web Design, Finance',
     publishDate: '22 June, 2021',
     about:
@@ -80,29 +79,36 @@ const PROJECTS = [
     description:
       'BEP20 token deployed on Binance Smart Chain with custom tokenomics. Built using Solidity and Hardhat with full EVM compatibility.',
     tags: ['Solidity', 'Hardhat', 'BEP20', 'DeFi'],
-    img: 'https://images.unsplash.com/photo-1639762681057-408e52192e55?w=800&h=500&fit=crop&auto=format',
-    url: 'https://github.com/wilby-mj/Moja-Coin',
-    page: '/pages/mojaCoin-token.html',
+    img: '/portfolio/token-bscscan.png',
+    url: 'https://github.com/6alaile/Moja-Coin',
     category: 'Blockchain Development',
     publishDate: '15 February, 2022',
     about:
       'MojaCoin is a cryptocurrency token built on the Binance Smart Chain using the BEP20 standard. As of writing the token has been deployed to the Testnet only and is available to view on BSCScan Testnet or the GitHub repo.',
-    images: [],
+    images: [
+      '/portfolio/token-bscscan.png',
+      '/portfolio/token-smart-contract-bsc.png',
+      '/portfolio/token-smart-contract-source-code.png',
+    ],
   },
   {
-    title: 'Football Odds AI',
+    title: 'Football Odds Assistant',
     type: 'Backend Application',
     description:
       'Server-side prediction engine that aggregates match data, applies statistical models, and surfaces value bets across major leagues.',
-    tags: ['Python', 'Django', 'APIs', 'ML'],
-    img: 'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800&h=500&fit=crop&auto=format',
-    url: 'https://github.com/wilby-mj/Foootball-Odds-AI',
-    page: '/pages/football-odds-ai.html',
-    category: 'Back-End Development, Artificial Intelligence (AI), Football',
-    publishDate: 'ETA 2022',
+    tags: ['Python', 'Vue.js', 'APIs', 'SPA'],
+    img: '/portfolio/football-odds-ai-1-default.png',
+    url: 'https://kanjibai.vercel.app',
+    category: 'Back-End Development, Football',
+    publishDate: '28 April, 2026',
     about:
       'A robot that scrapes betting sites in Tanzania and returns the events with the best odds. Built in Python using Django and Selenium.',
-    images: [],
+    images: [
+      '/portfolio/football-odds-ai-1-default.png',
+      '/portfolio/football-odds-ai-2-sample.png',
+      '/portfolio/football-odds-ai-3-sample.png',
+      '/portfolio/football-odds-ai-4-repo.png',
+    ],
   },
 ]
 
@@ -318,36 +324,43 @@ function About() {
             Beyond engineering, I actively trade forex, indices, and crypto markets — giving me firsthand domain knowledge
             for building high-performance fintech dashboards and risk tools.
           </p>
+        </div>
+
+        <div className="md:col-span-6 space-y-6">
           <p>
             <img src="/profile.jpg" alt="William Balaile" className="rounded-lg shadow-lg" />
           </p>
         </div>
-
-        <div className="md:col-span-6 space-y-6">
-          <p style={MONO} className="text-xs tracking-widest uppercase text-[#00e87a] mb-2">
+      </div>
+        <br></br>
+      <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="md:col-span-12">
+          <p style={MONO} className="text-xs tracking-widest uppercase text-[#00e87a] mb-6">
             // technical skills
           </p>
-          {SKILLS.map(({ category, items }) => (
-            <div key={category} className="bg-[#111111] p-5 border border-white/[0.08] rounded-xs">
-              <p style={MONO} className="text-xs tracking-widest uppercase text-[#88847f] mb-3">
-                {category}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {items.map((skill) => (
-                  <span
-                    key={skill.name}
-                    style={MONO}
-                    className="inline-flex items-center gap-1.5 text-xs px-3 py-1 bg-[#181818] border border-white/[0.08] text-[#f0ede8] hover:border-[#00e87a]/40 transition-colors"
-                  >
-                    {skill.icon && (
-                      <img src={skill.icon} alt="" className="w-5 h-5 brightness-0 invert opacity-70" />
-                    )}
-                    {skill.name}
-                  </span>
-                ))}
+          <div className="grid sm:grid-cols-2 gap-6">
+            {SKILLS.map(({ category, items }) => (
+              <div key={category} className="bg-[#111111] p-5 border border-white/[0.08] rounded-xs">
+                <p style={MONO} className="text-xs tracking-widest uppercase text-[#88847f] mb-3">
+                  {category}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {items.map((skill) => (
+                    <span
+                      key={skill.name}
+                      style={MONO}
+                      className="inline-flex items-center gap-1.5 text-xs px-3 py-1 bg-[#181818] border border-white/[0.08] text-[#f0ede8] hover:border-[#00e87a]/40 transition-colors"
+                    >
+                      {skill.icon && (
+                        <img src={skill.icon} alt="" className="w-5 h-5 brightness-0 invert opacity-70" />
+                      )}
+                      {skill.name}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -867,8 +880,8 @@ export default function App() {
         <Hero />
         <About />
         <Work />
-        <Services />
         <Process />
+        <Services />
         <Contact />
       </main>
       <Footer />
