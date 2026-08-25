@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react'
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Work', href: '#work' },
-  { label: 'Services', href: '#services' },
   { label: 'Process', href: '#process' },
+  { label: 'Services', href: '#services' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -23,12 +23,12 @@ const SKILLS: { category: string; items: { name: string; icon?: string }[] }[] =
   {
     category: 'Frameworks',
     items: [
-      { name: 'Vue.js', icon: '/icons/vue-dot-js-svgrepo-com.svg' },
-      { name: 'Express.js', icon: '/icons/express-svgrepo-com.svg' },
-      { name: 'Django', icon: '/icons/django-svgrepo-com.svg' },
       { name: 'Bootstrap', icon: '/icons/bootstrap-svgrepo-com.svg' },
+      { name: 'Vue.js', icon: '/icons/vue-dot-js-svgrepo-com.svg' },
       { name: 'React', icon: '/icons/react-svgrepo-com.svg' },
+      { name: 'Express.js', icon: '/icons/express-svgrepo-com.svg' },
       { name: 'Tailwind CSS', icon: '/icons/tailwind-svgrepo-com.svg' },
+      { name: 'Flask', icon: '/icons/flask-svgrepo-com.svg' },
     ],
   },
   {
@@ -55,59 +55,59 @@ const SKILLS: { category: string; items: { name: string; icon?: string }[] }[] =
 
 const PROJECTS = [
   {
+    title: 'Football Odds Assistant',
+    type: 'Backend Application',
+    description:
+      'A Server-side recommendation engine designed to identify value bets across major football leagues using a predefined algorithm.',
+    tags: ['Vue 3', 'Python', 'APIs', 'SPA', 'CI'],
+    img: '/portfolio/football-odds-ai-1-default.webp',
+    url: 'https://kanjibai.vercel.app',
+    category: 'Back-End Development, Football',
+    publishDate: '28 April, 2026',
+    about:
+      'This system collects match data from a sports betting site, then sources data on the teams in the fixture to determine a likely outcome. \n A challenge when building the system is finding APIs that provide reliable and timely data for football matches across major and minor leagues. \n  The backend is built with Python and Flask, while the frontend is a single-page application built with Vue 3. Its architecture is modular, allowing for easy updates to the algorithm, data sources or UI as needed.',
+    images: [
+      '/portfolio/football-odds-ai-1-default.webp',
+      '/portfolio/football-odds-ai-2-sample.webp',
+      '/portfolio/football-odds-ai-3-sample.webp',
+      '/portfolio/football-odds-ai-4-repo.webp',
+    ],
+  },
+  {
     title: 'Risk Management Calculator',
     type: 'Frontend Tool',
     description:
-      'A precision forex risk calculator built for traders to size positions, manage drawdown, and protect capital across currency pairs.',
-    tags: ['JavaScript', 'HTML/CSS', 'Trading'],
-    img: '/portfolio/risk-management-calculator-3-active.png',
+      'A calculator built for traders to estimate risk before deploying capital into the markets.',
+    tags: ['Bootstrap', 'APIs', 'CDNs', 'Trading'],
+    img: '/portfolio/risk-management-calculator-3-active.webp',
     url: 'https://forex-calculator.netlify.app',
     category: 'Front-End Web Development, Web Design, Finance',
     publishDate: '22 June, 2021',
     about:
-      'A calculator that can be used by traders to determine whether they can open a position based on the balance in their account.\n\nThis tool was built using HTML, CSS and JavaScript. The source code can be found on Github. The layout is based on Neuomorphic design principles.',
+      'This calculator is for traders to determine whether they have enough capital to open a position based on the balance in their account, and then estimate potential profits or losses of the position they want to execute. \n A challenge was making sure real-time market data is accurately reflected in the calculations, this was solved by using a pricing API. \n HTML, CSS and JavaScript with Bootstrap for styling were used to build the tool. It is hosted on Netlify and uses a CDN for fast delivery.',
     images: [
-      '/portfolio/risk-management-calculator-1.png',
-      '/portfolio/risk-management-calculator-2-intructions.png',
-      '/portfolio/risk-management-calculator-3-active.png',
-      '/portfolio/risk-management-calculator-4-github.png',
+      '/portfolio/risk-management-calculator-1.webp',
+      '/portfolio/risk-management-calculator-2-intructions.webp',
+      '/portfolio/risk-management-calculator-3-active.webp',
+      '/portfolio/risk-management-calculator-4-github.webp',
     ],
   },
   {
     title: 'MojaCoin',
-    type: 'Web3 / Smart Contract',
+    type: 'Smart Contract (web3)',
     description:
       'BEP20 token deployed on Binance Smart Chain with custom tokenomics. Built using Solidity and Hardhat with full EVM compatibility.',
     tags: ['Solidity', 'Hardhat', 'BEP20', 'DeFi'],
-    img: '/portfolio/token-bscscan.png',
-    url: 'https://github.com/6alaile/Moja-Coin',
+    img: '/portfolio/token-bscscan.webp',
+    url: 'https://testnet.bscscan.com/token/0xc9b622b621d57fef2b077e4850eb7cca10659be8#transactions',
     category: 'Blockchain Development',
     publishDate: '15 February, 2022',
     about:
       'MojaCoin is a cryptocurrency token built on the Binance Smart Chain using the BEP20 standard. As of writing the token has been deployed to the Testnet only and is available to view on BSCScan Testnet or the GitHub repo.',
     images: [
-      '/portfolio/token-bscscan.png',
-      '/portfolio/token-smart-contract-bsc.png',
-      '/portfolio/token-smart-contract-source-code.png',
-    ],
-  },
-  {
-    title: 'Football Odds Assistant',
-    type: 'Backend Application',
-    description:
-      'Server-side prediction engine that aggregates match data, applies statistical models, and surfaces value bets across major leagues.',
-    tags: ['Python', 'Vue.js', 'APIs', 'SPA'],
-    img: '/portfolio/football-odds-ai-1-default.png',
-    url: 'https://kanjibai.vercel.app',
-    category: 'Back-End Development, Football',
-    publishDate: '28 April, 2026',
-    about:
-      'A robot that scrapes betting sites in Tanzania and returns the events with the best odds. Built in Python using Django and Selenium.',
-    images: [
-      '/portfolio/football-odds-ai-1-default.png',
-      '/portfolio/football-odds-ai-2-sample.png',
-      '/portfolio/football-odds-ai-3-sample.png',
-      '/portfolio/football-odds-ai-4-repo.png',
+      '/portfolio/token-bscscan.webp',
+      '/portfolio/token-smart-contract-bsc.webp',
+      '/portfolio/token-smart-contract-source-code.webp',
     ],
   },
 ]
@@ -115,46 +115,46 @@ const PROJECTS = [
 const SERVICES = [
   {
     num: '01',
-    title: 'Web Development',
-    desc: 'Full-stack builds from landing pages to complex web apps — clean code, fast servers, and production-ready deploys.',
+    title: 'Web Applications',
+    desc: 'From landing pages to full scale applications — clean code, fast servers, and production-ready deploys.',
   },
   {
     num: '02',
-    title: 'dApp & Smart Contracts',
-    desc: 'EVM-compatible smart contracts, DeFi protocols, and NFT platforms audited and deployed on mainnet.',
+    title: 'eCommerce Solutions',
+    desc: 'Sell your products online with a custom storefront, payment gateway, and inventory management system.',
   },
   {
     num: '03',
-    title: 'Technical Analysis',
+    title: 'FinTech Tools',
     desc: 'Custom charting tools and market dashboards for forex, indices, and crypto built for real trading workflows.',
   },
   {
     num: '04',
-    title: 'Content Creation',
-    desc: 'Video, image, and audio content that communicates technical ideas clearly — for products, tutorials, and brands.',
+    title: 'dApp & Smart Contracts',
+    desc: 'EVM-compatible smart contracts, DeFi protocols, and NFT platforms audited and deployed on mainnet.',
   },
 ]
 
 const PROCESS = [
   {
     num: '01',
-    title: 'Discovery',
-    desc: "We talk through what you're building, what you need, and what success looks like. No templates — every project starts here.",
+    title: 'Ideation',
+    desc: "This could be a problem I or someone else is facing, or a moment of inspiration. \n Research is done to find if an alternative exists or if the situation is unique.",
   },
   {
     num: '02',
-    title: 'Strategy',
-    desc: 'I map out the architecture, stack, and timeline. You get a clear plan before a single line of code is written.',
+    title: 'Scope & Planning',
+    desc: 'First I validate the idea with a small prototype or proof of concept, followed by mapping out the architecture, stack, and timeline. This is to have a clear plan and point of reference.',
   },
   {
     num: '03',
-    title: 'Build',
-    desc: 'Development with regular check-ins. You see progress throughout — not just at the end.',
+    title: 'Building & Refining',
+    desc: 'Here is where the fun (and stress) happens. Each planned (and unplanned) feature is built, tested, and refined until the product is ready for launch.',
   },
   {
     num: '04',
     title: 'Launch',
-    desc: 'Deployed, tested, and handed off with documentation. Post-launch support included.',
+    desc: 'Finally, the product is launched and made available to users.',
   },
 ]
 
@@ -235,7 +235,7 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="relative px-6 lg:px-8 pt-28 md:pt-36 pb-16 md:pb-24 border-b border-white/[0.08] min-h-[90vh] flex flex-col justify-between">
+    <section className="relative px-6 lg:px-8 pt-28 md:pt-36 pb-16 md:pb-10 border-b border-white/[0.08] min-h-[90vh] flex flex-col justify-between">
       <div className="max-w-6xl mx-auto w-full my-auto">
         <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-[#00e87a]/10 border border-[#00e87a]/20 mb-8 md:mb-10">
           <span className="w-2 h-2 rounded-full bg-[#00e87a] animate-pulse" />
@@ -250,17 +250,16 @@ function Hero() {
         >
           Full Stack
           <br />
-          Web Dev<span className="text-[#00e87a]">.</span>
-          <br />
-          <span style={{ WebkitTextStroke: '1px rgba(240,237,232,0.22)', color: 'transparent' }}>
-            Web3 Builder
+          <span style={{ WebkitTextStroke: '1px rgba(240,237,232,0.22)', color: 'transparent', textDecoration: 'line-through' }}>
+            vibe coder
           </span>
+          <br />
+          Web Developer<span className="text-[#00e87a]">.</span>          
           <span className="text-[#00e87a] animate-pulse">_</span>
         </h1>
 
         <p className="text-base sm:text-lg md:text-xl text-[#a8a49e] max-w-2xl mb-10 md:mb-12 font-light leading-relaxed">
-          I build fast, functional web applications and smart contracts — from precision trading tools
-          to EVM DeFi protocols. Based in Dar es Salaam, Tanzania.
+          I use code to solve problems by building functional web applications that are user-friendly, scalable, and secure.
         </p>
 
         <div className="flex flex-wrap gap-4 mb-16 md:mb-20">
@@ -283,8 +282,8 @@ function Hero() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 pt-8 border-t border-white/[0.08]">
           {[
             ['Location', 'Dar es Salaam, TZ'],
-            ['Focus', 'Web + Web3'],
-            ['Stack', 'Full Stack'],
+            ['Focus', 'Progressive Web Apps'],
+            ['Current Stack', 'JavaScript, Python, PostgreSQL'],
             ['Status', 'Open to Work'],
           ].map(([label, value]) => (
             <div key={label} className="flex flex-col gap-1">
@@ -317,18 +316,20 @@ function About() {
             Products that work.
           </h2>
           <p className="text-[#a8a49e] leading-relaxed mb-6 font-light text-base md:text-lg">
-            I'm William Mujuni Balaile — a full stack developer who builds robust, scalable web applications
-            and decentralized protocols. My background bridges classic web architectures with Solidity smart contract development.
+            I'm William — a full stack developer who builds user-friendly, scalable web applications. 
+            Being in the tech space has given me the opportunity to experiment with different technologies including web3 and AI.
+            My background bridges classic web principles with modern development practices to deliver high-quality software that meets real-world needs.
           </p>
           <p className="text-[#a8a49e] leading-relaxed font-light text-base md:text-lg mb-8">
-            Beyond engineering, I actively trade forex, indices, and crypto markets — giving me firsthand domain knowledge
-            for building high-performance fintech dashboards and risk tools.
+            Beyond writing code, I actively trade forex, indices, and crypto markets — giving me firsthand domain knowledge
+            for building high-performance fintech tools. Additionally, being a lifelong football fan gives me perspective on how
+            the use of tech in the beautiful game can be an opportunity for innovation.
           </p>
         </div>
 
         <div className="md:col-span-6 space-y-6">
           <p>
-            <img src="/profile.jpg" alt="William Balaile" className="rounded-lg shadow-lg" />
+            <img src="/profile.webp" alt="William Balaile" className="rounded-lg shadow-lg" />
           </p>
         </div>
       </div>
@@ -507,7 +508,7 @@ function Work() {
   return (
     <section id="work" className="px-6 lg:px-8 py-20 md:py-28 border-b border-white/[0.08] bg-[#0a0a0a]">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-white/[0.08] gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 gap-4">
           <div>
             <p style={MONO} className="text-xs tracking-widest uppercase text-[#00e87a] mb-3">
               // selected work
@@ -519,9 +520,6 @@ function Work() {
               What I've Built
             </h2>
           </div>
-          <span style={MONO} className="text-xs text-[#88847f] tracking-widest uppercase">
-            [{PROJECTS.length} Featured Projects]
-          </span>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
@@ -654,7 +652,7 @@ function Process() {
             style={{ ...MONO, lineHeight: 1.15 }}
             className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#f0ede8]"
           >
-            The Process
+            My Process
           </h2>
         </div>
 
@@ -707,7 +705,7 @@ function Contact() {
             in mind?
           </h2>
           <p className="text-[#a8a49e] font-light leading-relaxed mb-10 text-base">
-            I take on select web and Web3 projects. If you have an application or contract to build —
+            I'm currently accepting projects. If you have an idea or application to build —
             reach out and I'll respond within 24 hours.
           </p>
 
@@ -836,9 +834,16 @@ function Footer() {
           WB<span className="text-[#00e87a]">.</span>
         </a>
         <p style={MONO} className="text-xs text-[#88847f] tracking-widest text-center">
-          © 2026 William Mujuni Balaile
+          © 2026 William Balaile
         </p>
         <div className="flex items-center gap-6">
+          <a
+                href="mailto:wbalaile@live.com"
+                style={MONO}
+                className="text-[#f0ede8] hover:text-[#00e87a] transition-colors text-sm font-semibold"
+              >
+                hello@wbalaile.is-a.dev
+          </a>
           <a
             href="https://github.com/6alaile"
             target="_blank"
