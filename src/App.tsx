@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { useForm, ValidationError } from '@formspree/react'
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
@@ -65,7 +66,7 @@ const PROJECTS = [
     category: 'Back-End Development, Football',
     publishDate: '28 April, 2026',
     about:
-      'This system collects match data from a sports betting site, then sources data on the teams in the fixture to determine a likely outcome. \n A challenge when building the system is finding APIs that provide reliable and timely data for football matches across major and minor leagues. \n  The backend is built with Python and Flask, while the frontend is a single-page application built with Vue 3. Its architecture is modular, allowing for easy updates to the algorithm, data sources or UI as needed.',
+      'This system collects match data from a sports betting site, then sources data on the teams in the fixture to determine a likely outcome. \n A challenge when building the system is finding APIs that provide reliable and timely data for football matches across major and minor leagues. \n  The backend is built with Python and Flask, while the frontend is a single-page application built with Vue 3. Its architecture is modular, allowing for easy updates to the algorithm, data sources or UI as needed. \n currently accessible and in use while being actively developed.',
     images: [
       '/portfolio/football-odds-ai-1-default.webp',
       '/portfolio/football-odds-ai-2-sample.webp',
@@ -84,10 +85,10 @@ const PROJECTS = [
     category: 'Front-End Web Development, Web Design, Finance',
     publishDate: '22 June, 2021',
     about:
-      'This calculator is for traders to determine whether they have enough capital to open a position based on the balance in their account, and then estimate potential profits or losses of the position they want to execute. \n A challenge was making sure real-time market data is accurately reflected in the calculations, this was solved by using a pricing API. \n HTML, CSS and JavaScript with Bootstrap for styling were used to build the tool. It is hosted on Netlify and uses a CDN for fast delivery.',
+      'This calculator is for traders to determine whether they have enough capital to open a position based on the balance in their account, and then estimate potential profits or losses of the position they want to execute. \n A challenge was making sure real-time market data is accurately reflected in the calculations, this was solved by using a pricing API. \n HTML, CSS and JavaScript with Bootstrap for styling were used to build the tool. It is hosted on Netlify and uses a CDN for fast delivery. \n Is being used by traders and currently has been ⭐ 13 times on GitHub.',
     images: [
       '/portfolio/risk-management-calculator-1.webp',
-      '/portfolio/risk-management-calculator-2-intructions.webp',
+      '/portfolio/risk-management-calculator-2-instructions.webp',
       '/portfolio/risk-management-calculator-3-active.webp',
       '/portfolio/risk-management-calculator-4-github.webp',
     ],
@@ -103,7 +104,7 @@ const PROJECTS = [
     category: 'Blockchain Development',
     publishDate: '15 February, 2022',
     about:
-      'MojaCoin is a cryptocurrency token built on the Binance Smart Chain using the BEP20 standard. As of writing the token has been deployed to the Testnet only and is available to view on BSCScan Testnet or the GitHub repo.',
+      'MojaCoin is a cryptocurrency token built on the Binance Smart Chain using the BEP20 standard. As of writing the token has been deployed to the Testnet only and is available to view on BSCScan Testnet or the GitHub repo. \n A challenge when building the token was ensuring that the smart contract is secure and free from vulnerabilities. This was solved by following best practices for smart contract development and using a testing framework to thoroughly test the contract before deployment. \n The token is built using Solidity and Hardhat, with full EVM compatibility, allowing it to be easily integrated into other blockchain applications.',
     images: [
       '/portfolio/token-bscscan.webp',
       '/portfolio/token-smart-contract-bsc.webp',
@@ -149,7 +150,7 @@ const PROCESS = [
   {
     num: '03',
     title: 'Building & Refining',
-    desc: 'Here is where the fun (and stress) happens. Each planned (and unplanned) feature is built, tested, and refined until the product is ready for launch.',
+    desc: 'Here is where the fun (and stress) happens. Each planned (and unplanned) feature is built, tested, and iterated upon until the product is ready for launch.',
   },
   {
     num: '04',
@@ -333,7 +334,7 @@ function About() {
           </p>
         </div>
       </div>
-        <br></br>
+        <br />
       <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 lg:gap-16 items-start">
         <div className="md:col-span-12">
           <p style={MONO} className="text-xs tracking-widest uppercase text-[#00e87a] mb-6">
@@ -484,19 +485,8 @@ function ProjectModal({ project, onClose }: { project: typeof PROJECTS[number] |
                   </p>
               </div>
             </div>
-            <div className="border-t border-white/[0.08] pt-4">
-              <a
-                href="https://docs.google.com/document/d/YOUR_cv_ID/edit?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={MONO}
-                className="inline-flex items-center gap-2 border border-white/20 text-[#f0ede8] px-6 py-3 text-xs font-semibold tracking-widest uppercase hover:border-[#00e87a] hover:text-[#00e87a] transition-colors"
-              >
-                Download CV ↗
-              </a>
             </div>
           </div>
-        </div>
         </div>
 
         <div className="px-8 py-8 border-t border-white/[0.08]">
@@ -734,13 +724,7 @@ function Process() {
 }
 
 function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', type: '', message: '' })
-  const [sent, setSent] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setSent(true)
-  }
+  const [state, handleSubmit] = useForm('mppzaaon')
 
   return (
     <section id="contact" className="px-6 lg:px-8 py-20 md:py-28 border-b border-white/[0.08]">
@@ -798,11 +782,24 @@ function Contact() {
                 ))}
               </div>
             </div>
+            <div className="border-t border-white/[0.08] pt-4">
+              <p style={MONO} className="text-xs tracking-widest uppercase text-[#88847f] mb-4">
+                <a
+                  href="https://docs.google.com/document/d/1ADMzC5L1fUVMkEg-bf3I2wKTetkShk4ni8JhKbOBE1s/edit?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={MONO}
+                  className="inline-flex items-center gap-2 border border-white/20 text-[#f0ede8] px-6 py-3 text-xs font-semibold tracking-widest uppercase hover:border-[#00e87a] hover:text-[#00e87a] transition-colors"
+                >
+                  Download CV ↗
+                </a>
+              </p>
+            </div>
           </div>
         </div>
 
         <div className="md:col-span-7 bg-[#111111] p-8 md:p-10 border border-white/[0.08]">
-          {sent ? (
+          {state.succeeded ? (
             <div className="border border-[#00e87a]/40 bg-[#00e87a]/10 p-10 text-center">
               <p style={MONO} className="text-[#00e87a] text-sm tracking-widest uppercase mb-3 font-bold">
                 Message Sent Successfully
@@ -813,40 +810,48 @@ function Contact() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
-              {[
-                { field: 'name', label: 'Your Name', type: 'text', placeholder: 'William Balaile' },
-                { field: 'email', label: 'Email Address', type: 'email', placeholder: 'you@example.com' },
-              ].map(({ field, label, type, placeholder }) => (
-                <div key={field}>
-                  <label style={MONO} className="block text-xs tracking-widest uppercase text-[#88847f] mb-2">
-                    {label}
-                  </label>
-                  <input
-                    type={type}
-                    required
-                    placeholder={placeholder}
-                    value={form[field as keyof typeof form]}
-                    onChange={(e) => setForm({ ...form, [field]: e.target.value })}
-                    className="w-full bg-[#161616] border border-white/[0.1] text-[#f0ede8] px-4 py-3.5 text-sm placeholder:text-[#444] focus:outline-none focus:border-[#00e87a] transition-colors font-light"
-                  />
-                </div>
-              ))}
+              <div>
+                <label style={MONO} className="block text-xs tracking-widest uppercase text-[#88847f] mb-2">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="William Balaile"
+                  className="w-full bg-[#161616] border border-white/[0.1] text-[#f0ede8] px-4 py-3.5 text-sm placeholder:text-[#444] focus:outline-none focus:border-[#00e87a] transition-colors font-light"
+                />
+                <ValidationError field="name" errors={state.errors} className="text-red-400 text-xs mt-1" />
+              </div>
+
+              <div>
+                <label style={MONO} className="block text-xs tracking-widest uppercase text-[#88847f] mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="you@example.com"
+                  className="w-full bg-[#161616] border border-white/[0.1] text-[#f0ede8] px-4 py-3.5 text-sm placeholder:text-[#444] focus:outline-none focus:border-[#00e87a] transition-colors font-light"
+                />
+                <ValidationError field="email" errors={state.errors} className="text-red-400 text-xs mt-1" />
+              </div>
 
               <div>
                 <label style={MONO} className="block text-xs tracking-widest uppercase text-[#88847f] mb-2">
                   Project Type
                 </label>
                 <select
-                  value={form.type}
-                  onChange={(e) => setForm({ ...form, type: e.target.value })}
+                  name="type"
                   className="w-full bg-[#161616] border border-white/[0.1] text-[#f0ede8] px-4 py-3.5 text-sm focus:outline-none focus:border-[#00e87a] transition-colors font-light appearance-none cursor-pointer"
                 >
                   <option value="" disabled>Select a service</option>
-                  <option>Web Development</option>
-                  <option>dApp / Smart Contract</option>
-                  <option>Technical Analysis Tool</option>
-                  <option>Content Creation</option>
-                  <option>Other</option>
+                  <option>Website</option>
+                  <option>Web Application</option>
+                  <option>Trading Platform Tool</option>
+                  <option>web3 dApp (decentralized application)</option>
+                  <option>Other; specify below</option>
                 </select>
               </div>
 
@@ -855,21 +860,24 @@ function Contact() {
                   Message
                 </label>
                 <textarea
+                  name="message"
                   rows={4}
                   required
                   placeholder="Tell me about your project scope and timeline..."
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
                   className="w-full bg-[#161616] border border-white/[0.1] text-[#f0ede8] px-4 py-3.5 text-sm placeholder:text-[#444] focus:outline-none focus:border-[#00e87a] transition-colors font-light resize-none"
                 />
+                <ValidationError field="message" errors={state.errors} className="text-red-400 text-xs mt-1" />
               </div>
+
+              <ValidationError errors={state.errors} className="text-red-400 text-sm" />
 
               <button
                 type="submit"
+                disabled={state.submitting}
                 style={MONO}
-                className="w-full bg-[#00e87a] text-[#080808] py-4 text-xs tracking-widest uppercase font-bold hover:bg-[#00ff88] transition-all duration-150 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                className="w-full bg-[#00e87a] text-[#080808] py-4 text-xs tracking-widest uppercase font-bold hover:bg-[#00ff88] transition-all duration-150 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message →
+                {state.submitting ? 'Sending...' : 'Send Message →'}
               </button>
             </form>
           )}

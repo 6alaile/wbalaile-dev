@@ -1,7 +1,7 @@
 {
   "description": "Showcases a personalized developer portfolio with a modern, clean layout inspired by Njabulo's design, enhancing professional online presence.",
   "robots": {
-    "index": false
+    "index": true
   },
   "accessibility": {
     "addBypassLinks": false,
