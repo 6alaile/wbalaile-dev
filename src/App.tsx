@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
@@ -482,10 +482,21 @@ function ProjectModal({ project, onClose }: { project: typeof PROJECTS[number] |
                       {project.url.replace(/^https?:\/\//, '')}
                     </a>
                   </p>
-                </div>
               </div>
             </div>
+            <div className="border-t border-white/[0.08] pt-4">
+              <a
+                href="https://docs.google.com/document/d/YOUR_cv_ID/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={MONO}
+                className="inline-flex items-center gap-2 border border-white/20 text-[#f0ede8] px-6 py-3 text-xs font-semibold tracking-widest uppercase hover:border-[#00e87a] hover:text-[#00e87a] transition-colors"
+              >
+                Download CV ↗
+              </a>
+            </div>
           </div>
+        </div>
         </div>
 
         <div className="px-8 py-8 border-t border-white/[0.08]">
@@ -592,6 +603,48 @@ function Work() {
 
       <ProjectModal project={modalProject} onClose={() => setModalProject(null)} />
     </section>
+  )
+}
+
+function ScrollCTA() {
+  const [visible, setVisible] = useState(false)
+  const lastScroll = useRef(0)
+
+  useEffect(() => {
+    const workEl = document.getElementById('work')
+    const processEl = document.getElementById('process')
+    if (!workEl || !processEl) return
+
+    const handler = () => {
+      const y = window.scrollY
+      const scrollingDown = y > lastScroll.current
+      lastScroll.current = y
+
+      const workBottom = workEl.offsetTop + workEl.offsetHeight
+      const processTop = processEl.offsetTop
+      const inRange = y + window.innerHeight > workBottom && y < processTop
+
+      setVisible(scrollingDown && inRange)
+    }
+
+    window.addEventListener('scroll', handler, { passive: true })
+    return () => window.removeEventListener('scroll', handler)
+  }, [])
+
+  return (
+    <div
+      className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 pointer-events-none ${
+        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+      }`}
+    >
+      <a
+        href="#contact"
+        style={MONO}
+        className="pointer-events-auto inline-flex items-center gap-3 bg-[#00e87a] text-[#080808] px-8 py-4 text-xs font-bold tracking-widest uppercase hover:bg-[#00ff88] transition-all duration-100 shadow-2xl shadow-black/40"
+      >
+        Like what you see? Let's talk →
+      </a>
+    </div>
   )
 }
 
@@ -885,6 +938,7 @@ export default function App() {
         <Hero />
         <About />
         <Work />
+        <ScrollCTA />
         <Process />
         <Services />
         <Contact />
