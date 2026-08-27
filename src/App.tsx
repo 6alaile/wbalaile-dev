@@ -251,7 +251,7 @@ function Hero() {
         >
           Full Stack
           <br />
-          <span style={{ WebkitTextStroke: '1px rgba(240,237,232,0.22)', color: 'transparent', textDecoration: 'line-through' }}>
+          <span style={{ WebkitTextStroke: '1px rgba(240,237,232,0.22)', color: 'transparent', textDecoration: 'line-through', textDecorationColor: 'rgba(240,237,232,0.4)', WebkitTextDecorationColor: 'rgba(240,237,232,0.4)' }}>
             vibe coder
           </span>
           <br />
