@@ -4,18 +4,18 @@
 # ---------------------------------------------------------------------------
 # Images & Graphics
 # ---------------------------------------------------------------------------
-*.png                !filter !diff !merge text
-*.jpg                !filter !diff !merge text
-*.jpeg               !filter !diff !merge text
-*.gif                !filter !diff !merge text
-*.bmp                !filter !diff !merge text
-*.tiff               !filter !diff !merge text
-*.tif                !filter !diff !merge text
-*.ico                !filter !diff !merge text
-*.webp               !filter !diff !merge text
-*.psd                !filter !diff !merge text
-*.ai                 !filter !diff !merge text
-*.sketch             !filter !diff !merge text
+*.png                -text
+*.jpg                -text
+*.jpeg               -text
+*.gif                -text
+*.bmp                -text
+*.tiff               -text
+*.tif                -text
+*.ico                -text
+*.webp               -text
+*.psd                -text
+*.ai                 -text
+*.sketch             -text
 
 # ---------------------------------------------------------------------------
 # Video
