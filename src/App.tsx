@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useForm, ValidationError } from '@formspree/react'
+import gsap from 'gsap'
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
@@ -166,13 +167,15 @@ const PRICING_PLANS = [
     description: 'A simple, responsive website for your business or personal use.',
     target: 'Entrepreneurs, and businesses who want to establish an online presence with a professional website.',
     price: '400,000',
-    features: ['Custom landing page (up to 5 pages)', 'Custom .co.tz Domain + Emails', '1yr Hosting + Maintenance', 'Contact form + Chat on WhatsApp', 'SEO'],
+    url: 'https://snippe.me/pay/website',
+    features: ['Custom landing page (up to 5 pages)', 'Custom .co.tz Domain + Emails', '1yr Hosting + Maintenance', 'Contact form + Chat on WhatsApp', 'Search Engine Optimization'],
   },
   {
     name: 'eCommerce',
     description: 'A fully-featured shop for selling products and managing inventory.',
     target: 'Entrepreneurs, and businesses who are selling or want to sell online. A centralized platform for inventory, orders, and customer relations.',
     price: '1,800,000',
+    url: 'https://snippe.me/p/NH2IAJVA9L',
     features: ['All core Website features included', 'Secure Payment Gateway integration', 'Shopping Cart & Checkout system', 'Inventory, Order Tracking & Discount systems', 'Automated customer invoice & email notifications'],
   },
   {
@@ -180,6 +183,7 @@ const PRICING_PLANS = [
     description: 'A responsive application built to meet your specific business needs.',
     target: 'Entrepreneurs, and businesses needing internal tools for process automation or customer-facing applications.',
     price: '3,200,000',
+    url: 'https://snippe.me/p/MpEd3XUxtf',
     features: ['All core Website features included', 'Secure Authentication (Login/Signup)', 'Interactive Dashboard + Database', 'Business Logic & API Integration', 'Admin Panel (for managing users, content, and data)'],
   },
 ]
@@ -276,9 +280,36 @@ function Nav() {
 }
 
 function Hero() {
+  const animRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const scenes = animRef.current?.querySelectorAll<HTMLImageElement>('.hero-scene')
+    if (!scenes || scenes.length === 0) return
+
+    gsap.set(scenes[0], { opacity: 1 })
+    gsap.set(scenes, { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain' })
+
+    const tl = gsap.timeline({ repeat: -1 })
+    scenes.forEach((scene, i) => {
+      const next = scenes[(i + 1) % scenes.length]
+      tl.to(scene, { opacity: 0, duration: 0.6, ease: 'power2.inOut' }, i * 2.4 + 1.8)
+      tl.to(next, { opacity: 1, duration: 0.6, ease: 'power2.inOut' }, i * 2.4 + 1.8)
+    })
+
+    return () => { tl.kill() }
+  }, [])
+
   return (
-    <section className="relative px-6 lg:px-8 pt-28 md:pt-36 pb-16 md:pb-10 border-b border-white/[0.08] min-h-[90vh] flex flex-col justify-between">
-      <div className="max-w-6xl mx-auto w-full my-auto">
+    <section className="relative px-6 lg:px-8 pt-28 md:pt-36 pb-16 md:pb-10 border-b border-white/[0.08] min-h-[90vh] flex flex-col justify-between overflow-hidden">
+      <div ref={animRef} className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[45%] h-[70%] opacity-20 pointer-events-none">
+        <img src="/hero-anim/scene-1.webp" alt="" className="hero-scene" />
+        <img src="/hero-anim/scene-2.webp" alt="" className="hero-scene" />
+        <img src="/hero-anim/scene-3.webp" alt="" className="hero-scene" />
+        <img src="/hero-anim/scene-4.webp" alt="" className="hero-scene" />
+        <img src="/hero-anim/scene-5.webp" alt="" className="hero-scene" />
+      </div>
+
+      <div className="max-w-6xl mx-auto w-full my-auto relative z-10">
         <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-[#00e87a]/10 border border-[#00e87a]/20 mb-8 md:mb-10">
           <span className="w-2 h-2 rounded-full bg-[#00e87a] animate-pulse" />
           <span style={MONO} className="text-xs font-semibold tracking-widest uppercase text-[#00e87a]">
@@ -813,7 +844,7 @@ function Pricing() {
                 <p className="text-lg text-[#a8a49e] mb-2">{plan.description}</p>
                 <p className="text-sm text-[#88847f]">{plan.target}</p>
               </div>
-              <div className="flex items-center mb-6">
+              <div className="flex items-center justify-center mb-6">
                 <span style={MONO} className="text-3xl md:text-4xl font-extrabold text-[#00e87a]">
                   {plan.price}
                 </span>
@@ -830,7 +861,9 @@ function Pricing() {
                 ))}
               </ul>
               <a
-                href="#contact"
+                href={plan.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={MONO}
                 className="mt-8 block text-center text-xs tracking-widest uppercase border border-white/20 text-[#f0ede8] px-6 py-3 hover:border-[#00e87a] hover:text-[#00e87a] transition-colors"
               >
