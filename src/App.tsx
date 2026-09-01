@@ -301,14 +301,6 @@ function Hero() {
 
   return (
     <section className="relative px-6 lg:px-8 pt-28 md:pt-36 pb-16 md:pb-10 border-b border-white/[0.08] min-h-[90vh] flex flex-col justify-between overflow-hidden">
-      <div ref={animRef} className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[45%] h-[70%] opacity-20 pointer-events-none">
-        <img src="/hero-anim/scene-1.webp" alt="" className="hero-scene" />
-        <img src="/hero-anim/scene-2.webp" alt="" className="hero-scene" />
-        <img src="/hero-anim/scene-3.webp" alt="" className="hero-scene" />
-        <img src="/hero-anim/scene-4.webp" alt="" className="hero-scene" />
-        <img src="/hero-anim/scene-5.webp" alt="" className="hero-scene" />
-      </div>
-
       <div className="max-w-6xl mx-auto w-full my-auto relative z-10">
         <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-[#00e87a]/10 border border-[#00e87a]/20 mb-8 md:mb-10">
           <span className="w-2 h-2 rounded-full bg-[#00e87a] animate-pulse" />
