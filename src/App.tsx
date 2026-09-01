@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
 import { useForm, ValidationError } from '@formspree/react'
-import gsap from 'gsap'
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
@@ -280,28 +279,9 @@ function Nav() {
 }
 
 function Hero() {
-  const animRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const scenes = animRef.current?.querySelectorAll<HTMLImageElement>('.hero-scene')
-    if (!scenes || scenes.length === 0) return
-
-    gsap.set(scenes[0], { opacity: 1 })
-    gsap.set(scenes, { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain' })
-
-    const tl = gsap.timeline({ repeat: -1 })
-    scenes.forEach((scene, i) => {
-      const next = scenes[(i + 1) % scenes.length]
-      tl.to(scene, { opacity: 0, duration: 0.6, ease: 'power2.inOut' }, i * 2.4 + 1.8)
-      tl.to(next, { opacity: 1, duration: 0.6, ease: 'power2.inOut' }, i * 2.4 + 1.8)
-    })
-
-    return () => { tl.kill() }
-  }, [])
-
   return (
-    <section className="relative px-6 lg:px-8 pt-28 md:pt-36 pb-16 md:pb-10 border-b border-white/[0.08] min-h-[90vh] flex flex-col justify-between overflow-hidden">
-      <div className="max-w-6xl mx-auto w-full my-auto relative z-10">
+    <section className="relative px-6 lg:px-8 pt-28 md:pt-36 pb-16 md:pb-10 border-b border-white/[0.08] min-h-[90vh] flex flex-col justify-between">
+      <div className="max-w-6xl mx-auto w-full my-auto">
         <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-[#00e87a]/10 border border-[#00e87a]/20 mb-8 md:mb-10">
           <span className="w-2 h-2 rounded-full bg-[#00e87a] animate-pulse" />
           <span style={MONO} className="text-xs font-semibold tracking-widest uppercase text-[#00e87a]">
@@ -914,6 +894,18 @@ function Contact() {
           </p>
 
           <div className="space-y-6">
+            <div className="border-t border-white/[0.08] pt-4">
+              <a
+                href="https://wa.me/255782506217"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={MONO}
+                className="inline-flex items-center gap-2 border border-white/20 text-[#f0ede8] px-6 py-3 text-xs font-semibold tracking-widest uppercase hover:border-[#00e87a] hover:text-[#00e87a] transition-colors"
+              >
+                <img src="/icons/whatsapp-svgrepo-com.svg" alt="" className="w-4 h-4 brightness-0 invert opacity-70" />
+                Chat on WhatsApp
+              </a>
+            </div>
             <div className="border-t border-white/[0.08] pt-4">
               <p style={MONO} className="text-xs tracking-widest uppercase text-[#88847f] mb-2">
                 Direct Email
