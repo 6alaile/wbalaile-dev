@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { label: 'Work', href: '#work' },
   { label: 'Process', href: '#process' },
   { label: 'Services', href: '#services' },
+  { label: 'Pricing', href: '#pricing' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -116,7 +117,7 @@ const PROJECTS = [
 const SERVICES = [
   {
     num: '01',
-    title: 'Web Applications',
+    title: 'Websites & Applications',
     desc: 'From landing pages to full scale applications — clean code, fast servers, and production-ready deploys.',
   },
   {
@@ -126,13 +127,13 @@ const SERVICES = [
   },
   {
     num: '03',
-    title: 'FinTech Tools',
-    desc: 'Custom charting tools and market dashboards for forex, indices, and crypto built for real trading workflows.',
+    title: 'dApp & Smart Contracts',
+    desc: 'EVM-compatible smart contracts, DeFi protocols, and NFT platforms audited and deployed on mainnet.',
   },
   {
     num: '04',
-    title: 'dApp & Smart Contracts',
-    desc: 'EVM-compatible smart contracts, DeFi protocols, and NFT platforms audited and deployed on mainnet.',
+    title: 'Maintenance and Support',
+    desc: 'Ongoing maintenance, updates, and technical support to ensure your digital assets remain secure and performant.',
   },
 ]
 
@@ -158,6 +159,46 @@ const PROCESS = [
     desc: 'Finally, the product is launched and made available to users.',
   },
 ]
+
+const PRICING_PLANS = [
+  {
+    name: 'Website',
+    description: 'A simple, responsive website for your business or personal use.',
+    target: 'Entrepreneurs, and businesses who want to establish an online presence with a professional website.',
+    price: '400,000',
+    features: ['Custom landing page (up to 5 pages)', 'Custom .co.tz Domain + Emails', '1yr Hosting + Maintenance', 'Contact form + Chat on WhatsApp', 'SEO'],
+  },
+  {
+    name: 'eCommerce',
+    description: 'A fully-featured shop for selling products and managing inventory.',
+    target: 'Entrepreneurs, and businesses who are selling or want to sell online. A centralized platform for inventory, orders, and customer relations.',
+    price: '1,800,000',
+    features: ['All core Website features included', 'Secure Payment Gateway integration', 'Shopping Cart & Checkout system', 'Inventory, Order Tracking & Discount systems', 'Automated customer invoice & email notifications'],
+  },
+  {
+    name: 'Web Application',
+    description: 'A responsive application built to meet your specific business needs.',
+    target: 'Entrepreneurs, and businesses needing internal tools for process automation or customer-facing applications.',
+    price: '3,200,000',
+    features: ['All core Website features included', 'Secure Authentication (Login/Signup)', 'Interactive Dashboard + Database', 'Business Logic & API Integration', 'Admin Panel (for managing users, content, and data)'],
+  },
+]
+
+const TAG_ICONS: Record<string, string> = {
+  'Vue 3': '/icons/vue-dot-js-svgrepo-com.svg',
+  Python: '/icons/python-svgrepo-com.svg',
+  Bootstrap: '/icons/bootstrap-svgrepo-com.svg',
+  Solidity: '/icons/light-solidity-svgrepo-com.svg',
+  Hardhat: '/icons/hardhat-seeklogo.com.svg',
+  React: '/icons/react-svgrepo-com.svg',
+  'Node.js': '/icons/node-dot-js-svgrepo-com.svg',
+  Express: '/icons/express-svgrepo-com.svg',
+  MongoDB: '/icons/mongodb-svgrepo-com.svg',
+  MySQL: '/icons/mysql-svgrepo-com.svg',
+  PostgreSQL: '/icons/postgresql-svgrepo-com.svg',
+  Tailwind: '/icons/tailwind-svgrepo-com.svg',
+  Vite: '/icons/vite-svgrepo-com.svg',
+}
 
 const MONO: React.CSSProperties = { fontFamily: "'JetBrains Mono', monospace" }
 
@@ -369,6 +410,100 @@ function About() {
   )
 }
 
+function Work() {
+  const [hovered, setHovered] = useState<number | null>(null)
+  const [modalProject, setModalProject] = useState<typeof PROJECTS[number] | null>(null)
+
+  return (
+    <section id="work" className="px-6 lg:px-8 py-20 md:py-28 border-b border-white/[0.08] bg-[#0a0a0a]">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 gap-4">
+          <div>
+            <p style={MONO} className="text-xs tracking-widest uppercase text-[#00e87a] mb-3">
+              // selected work
+            </p>
+            <h2
+              style={{ ...MONO, lineHeight: 1.15 }}
+              className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#f0ede8]"
+            >
+              What I've Built
+            </h2>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {PROJECTS.map((project, i) => (
+            <div
+              key={project.title}
+              className="bg-[#111111] border border-white/[0.08] hover:border-[#00e87a]/40 transition-all duration-300 group flex flex-col justify-between"
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(null)}
+            >
+              <div>
+                <div className="relative overflow-hidden bg-[#161616]" style={{ aspectRatio: '16/10' }}>
+                  <img
+                    src={project.img}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div
+                    className="absolute inset-0 bg-[#080808]/85 flex items-center justify-center gap-3 transition-opacity duration-300"
+                    style={{ opacity: hovered === i ? 1 : 0 }}
+                  >
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={MONO}
+                      className="text-xs tracking-widest uppercase text-[#00e87a] border border-[#00e87a] bg-[#080808] px-4 py-2.5 hover:bg-[#00e87a] hover:text-[#080808] transition-colors"
+                    >
+                      View Live ↗
+                    </a>
+                    <button
+                      onClick={() => setModalProject(project)}
+                      style={MONO}
+                      className="text-xs tracking-widest uppercase text-[#f0ede8] border border-white/20 bg-[#080808] px-4 py-2.5 hover:border-[#00e87a] hover:text-[#00e87a] transition-colors cursor-pointer"
+                    >
+                      About Project
+                    </button>
+                  </div>
+                </div>
+
+                <div className="p-6">
+                  <p style={MONO} className="text-xs tracking-widest uppercase text-[#00e87a] mb-2">
+                    {project.type}
+                  </p>
+                  <h3
+                    style={MONO}
+                    className="text-base font-semibold text-[#f0ede8] mb-3 group-hover:text-[#00e87a] transition-colors"
+                  >
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-[#a8a49e] font-light leading-relaxed mb-6">
+                    {project.description}
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-6 pt-0">
+                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/[0.06]">
+                  {project.tags.map((tag) => (
+                    <span key={tag} style={MONO} className="text-xs px-2.5 py-1 bg-[#181818] text-[#88847f]">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <ProjectModal project={modalProject} onClose={() => setModalProject(null)} />
+    </section>
+  )
+}
+
 function ProjectModal({ project, onClose }: { project: typeof PROJECTS[number] | null; onClose: () => void }) {
   const [slide, setSlide] = useState(0)
   const hasSlides = project && project.images.length > 0
@@ -483,8 +618,25 @@ function ProjectModal({ project, onClose }: { project: typeof PROJECTS[number] |
                       {project.url.replace(/^https?:\/\//, '')}
                     </a>
                   </p>
+                </div>
+                <div>
+                  <span style={MONO} className="text-[#a8a49e]">Technologies</span>
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        style={MONO}
+                        className="inline-flex items-center gap-1.5 text-xs px-2.5 py-1 bg-[#181818] border border-white/[0.08] text-[#f0ede8]"
+                      >
+                        {TAG_ICONS[tag] && (
+                          <img src={TAG_ICONS[tag]} alt="" className="w-3.5 h-3.5 brightness-0 invert opacity-70" />
+                        )}
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
             </div>
           </div>
         </div>
@@ -499,100 +651,6 @@ function ProjectModal({ project, onClose }: { project: typeof PROJECTS[number] |
         </div>
       </div>
     </div>
-  )
-}
-
-function Work() {
-  const [hovered, setHovered] = useState<number | null>(null)
-  const [modalProject, setModalProject] = useState<typeof PROJECTS[number] | null>(null)
-
-  return (
-    <section id="work" className="px-6 lg:px-8 py-20 md:py-28 border-b border-white/[0.08] bg-[#0a0a0a]">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 gap-4">
-          <div>
-            <p style={MONO} className="text-xs tracking-widest uppercase text-[#00e87a] mb-3">
-              // selected work
-            </p>
-            <h2
-              style={{ ...MONO, lineHeight: 1.15 }}
-              className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#f0ede8]"
-            >
-              What I've Built
-            </h2>
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-          {PROJECTS.map((project, i) => (
-            <div
-              key={project.title}
-              className="bg-[#111111] border border-white/[0.08] hover:border-[#00e87a]/40 transition-all duration-300 group flex flex-col justify-between"
-              onMouseEnter={() => setHovered(i)}
-              onMouseLeave={() => setHovered(null)}
-            >
-              <div>
-                <div className="relative overflow-hidden bg-[#161616]" style={{ aspectRatio: '16/10' }}>
-                  <img
-                    src={project.img}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div
-                    className="absolute inset-0 bg-[#080808]/85 flex items-center justify-center gap-3 transition-opacity duration-300"
-                    style={{ opacity: hovered === i ? 1 : 0 }}
-                  >
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={MONO}
-                      className="text-xs tracking-widest uppercase text-[#00e87a] border border-[#00e87a] bg-[#080808] px-4 py-2.5 hover:bg-[#00e87a] hover:text-[#080808] transition-colors"
-                    >
-                      View Live ↗
-                    </a>
-                    <button
-                      onClick={() => setModalProject(project)}
-                      style={MONO}
-                      className="text-xs tracking-widest uppercase text-[#f0ede8] border border-white/20 bg-[#080808] px-4 py-2.5 hover:border-[#00e87a] hover:text-[#00e87a] transition-colors cursor-pointer"
-                    >
-                      About Project
-                    </button>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <p style={MONO} className="text-xs tracking-widest uppercase text-[#00e87a] mb-2">
-                    {project.type}
-                  </p>
-                  <h3
-                    style={MONO}
-                    className="text-base font-semibold text-[#f0ede8] mb-3 group-hover:text-[#00e87a] transition-colors"
-                  >
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-[#a8a49e] font-light leading-relaxed mb-6">
-                    {project.description}
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-6 pt-0">
-                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/[0.06]">
-                  {project.tags.map((tag) => (
-                    <span key={tag} style={MONO} className="text-xs px-2.5 py-1 bg-[#181818] text-[#88847f]">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <ProjectModal project={modalProject} onClose={() => setModalProject(null)} />
-    </section>
   )
 }
 
@@ -638,51 +696,6 @@ function ScrollCTA() {
   )
 }
 
-function Services() {
-  return (
-    <section id="services" className="px-6 lg:px-8 py-20 md:py-28 border-b border-white/[0.08]">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-14">
-          <p style={MONO} className="text-xs tracking-widest uppercase text-[#00e87a] mb-3">
-            // what I do
-          </p>
-          <h2
-            style={{ ...MONO, lineHeight: 1.15 }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#f0ede8]"
-          >
-            Services
-          </h2>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SERVICES.map((s) => (
-            <div
-              key={s.num}
-              className="bg-[#111111] p-8 border border-white/[0.08] hover:border-[#00e87a]/40 transition-all duration-300 group flex flex-col justify-between"
-            >
-              <div>
-                <p
-                  style={MONO}
-                  className="text-4xl md:text-5xl font-extrabold text-[#222222] group-hover:text-[#00e87a] transition-colors mb-6 leading-none"
-                >
-                  {s.num}
-                </p>
-                <h3
-                  style={MONO}
-                  className="text-xs font-semibold text-[#f0ede8] mb-3 tracking-widest uppercase"
-                >
-                  {s.title}
-                </h3>
-                <p className="text-sm text-[#a8a49e] font-light leading-relaxed">{s.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
 function Process() {
   return (
     <section id="process" className="px-6 lg:px-8 py-20 md:py-28 border-b border-white/[0.08] bg-[#0a0a0a]">
@@ -717,6 +730,135 @@ function Process() {
               <p className="text-sm text-[#a8a49e] font-light leading-relaxed">{step.desc}</p>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Services() {
+  return (
+    <section id="services" className="px-6 lg:px-8 py-20 md:py-28 border-b border-white/[0.08]">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-14">
+          <p style={MONO} className="text-xs tracking-widest uppercase text-[#00e87a] mb-3">
+            // Services
+          </p>
+          <h2
+            style={{ ...MONO, lineHeight: 1.15 }}
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#f0ede8]"
+          >
+            What I do for my clients
+          </h2>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {SERVICES.map((s) => (
+            <div
+              key={s.num}
+              className="bg-[#111111] p-8 border border-white/[0.08] hover:border-[#00e87a]/40 transition-all duration-300 group flex flex-col justify-between"
+            >
+              <div>
+                <p
+                  style={MONO}
+                  className="text-4xl md:text-5xl font-extrabold text-[#222222] group-hover:text-[#00e87a] transition-colors mb-6 leading-none"
+                >
+                  {s.num}
+                </p>
+                <h3
+                  style={MONO}
+                  className="text-xs font-semibold text-[#f0ede8] mb-3 tracking-widest uppercase"
+                >
+                  {s.title}
+                </h3>
+                <p className="text-sm text-[#a8a49e] font-light leading-relaxed">{s.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Pricing() {
+  return (
+    <section id="pricing" className="px-6 lg:px-8 py-20 md:py-28 border-b border-white/[0.08] bg-[#0a0a0a]">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-14">
+          <p style={MONO} className="text-xs tracking-widest uppercase text-[#00e87a] mb-3">
+            // pricing
+          </p>
+          <h2
+            style={{ ...MONO, lineHeight: 1.15 }}
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#f0ede8]"
+          >
+            Pricing
+          </h2>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {PRICING_PLANS.map((plan) => (
+            <div
+              key={plan.name}
+              className="bg-[#111111] p-8 border border-white/[0.08] hover:border-[#00e87a]/40 transition-all duration-300 group flex flex-col"
+            >
+              <h3
+                style={MONO}
+                className="text-xs font-semibold text-[#f0ede8] mb-4 tracking-widest uppercase"
+              >
+                {plan.name}
+              </h3>
+              <div className="mb-6">
+                <p className="text-lg text-[#a8a49e] mb-2">{plan.description}</p>
+                <p className="text-sm text-[#88847f]">{plan.target}</p>
+              </div>
+              <div className="flex items-center mb-6">
+                <span style={MONO} className="text-3xl md:text-4xl font-extrabold text-[#00e87a]">
+                  {plan.price}
+                </span>
+                <span style={MONO} className="text-sm text-[#88847f] ml-1">
+                  TZS
+                </span>
+              </div>
+              <ul className="space-y-3 flex-1">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-3 text-sm text-[#a8a49e] font-light">
+                    <span className="text-[#00e87a] mt-0.5">✓</span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#contact"
+                style={MONO}
+                className="mt-8 block text-center text-xs tracking-widest uppercase border border-white/20 text-[#f0ede8] px-6 py-3 hover:border-[#00e87a] hover:text-[#00e87a] transition-colors"
+              >
+                Get Started
+              </a>
+            </div>
+          ))}
+
+          <div className="sm:col-span-2 lg:col-span-3 bg-[#111111] p-8 border border-white/[0.08] hover:border-[#00e87a]/40 transition-all duration-300 group flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <h3
+                style={MONO}
+                className="text-xs font-semibold text-[#f0ede8] mb-2 tracking-widest uppercase"
+              >
+                Custom Request
+              </h3>
+              <p className="text-sm text-[#a8a49e] font-light">
+                Have a unique project in mind? Let's discuss your requirements and I'll provide a tailored quote.
+              </p>
+            </div>
+            <a
+              href="#contact"
+              style={MONO}
+              className="inline-block text-center text-xs tracking-widest uppercase bg-[#00e87a] text-[#080808] px-8 py-3 font-bold hover:bg-[#00ff88] transition-all duration-150 transform hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
+            >
+              Contact for Quote
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -949,6 +1091,7 @@ export default function App() {
         <ScrollCTA />
         <Process />
         <Services />
+        <Pricing />
         <Contact />
       </main>
       <Footer />
