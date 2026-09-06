@@ -1,0 +1,335 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "WB." [ref=e6] [cursor=pointer]:
+        - /url: "#"
+      - generic [ref=e7]:
+        - link "About" [ref=e8] [cursor=pointer]:
+          - /url: "#about"
+        - link "Work" [ref=e9] [cursor=pointer]:
+          - /url: "#work"
+        - link "Process" [ref=e10] [cursor=pointer]:
+          - /url: "#process"
+        - link "Services" [ref=e11] [cursor=pointer]:
+          - /url: "#services"
+        - link "Pricing" [ref=e12] [cursor=pointer]:
+          - /url: "#pricing"
+        - link "Hire Me" [ref=e13] [cursor=pointer]:
+          - /url: "#contact"
+  - main [ref=e14]:
+    - generic [ref=e16]:
+      - generic [ref=e17]: Available for work
+      - heading "Full Stack vibe coder Web Developer._" [level=1] [ref=e20]: Full Stackvibe coderWeb Developer._
+      - paragraph [ref=e21]: I use code to solve problems by building functional web applications that are user-friendly, scalable, and secure.
+      - generic [ref=e22]:
+        - link "See My Work →" [ref=e23] [cursor=pointer]:
+          - /url: "#work"
+          - text: See My Work
+          - generic [ref=e24]: →
+        - link "Get In Touch" [ref=e25] [cursor=pointer]:
+          - /url: "#contact"
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - paragraph [ref=e28]: Location
+          - paragraph [ref=e29]: Dar es Salaam, TZ
+        - generic [ref=e30]:
+          - paragraph [ref=e31]: Focus
+          - paragraph [ref=e32]: Progressive Web Apps
+        - generic [ref=e33]:
+          - paragraph [ref=e34]: Current Stack
+          - paragraph [ref=e35]: JavaScript, Python, PostgreSQL
+        - generic [ref=e36]:
+          - paragraph [ref=e37]: Status
+          - paragraph [ref=e38]: Open to Work
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - paragraph [ref=e42]: // about
+          - heading "Code that ships. Products that work." [level=2] [ref=e43]: Code that ships.Products that work.
+          - paragraph [ref=e44]: I'm William — a full stack developer who builds user-friendly, scalable web applications. Being in the tech space has given me the opportunity to experiment with different technologies including web3 and AI. My background bridges classic web principles with modern development practices to deliver high-quality software that meets real-world needs.
+          - paragraph [ref=e45]: Beyond writing code, I actively trade forex, indices, and crypto markets — giving me firsthand domain knowledge for building high-performance fintech tools. Additionally, being a lifelong football fan gives me perspective on how the use of tech in the beautiful game can be an opportunity for innovation.
+        - paragraph [ref=e47]:
+          - img "William Balaile" [ref=e48]
+      - generic [ref=e50]:
+        - paragraph [ref=e51]: // technical skills
+        - generic [ref=e52]:
+          - generic [ref=e53]:
+            - paragraph [ref=e54]: Languages
+            - generic [ref=e55]:
+              - generic [ref=e56]: HTML
+              - generic [ref=e57]: CSS
+              - generic [ref=e58]: JavaScript
+              - generic [ref=e59]: Python
+              - generic [ref=e60]: SQL
+              - generic [ref=e61]: Solidity
+          - generic [ref=e62]:
+            - paragraph [ref=e63]: Frameworks
+            - generic [ref=e64]:
+              - generic [ref=e65]: Bootstrap
+              - generic [ref=e66]: Vue.js
+              - generic [ref=e67]: React
+              - generic [ref=e68]: Express.js
+              - generic [ref=e69]: Tailwind CSS
+              - generic [ref=e70]: Flask
+          - generic [ref=e71]:
+            - paragraph [ref=e72]: Databases
+            - generic [ref=e73]:
+              - generic [ref=e74]: MongoDB
+              - generic [ref=e75]: MySQL
+              - generic [ref=e76]: PostgreSQL
+          - generic [ref=e77]:
+            - paragraph [ref=e78]: Tools
+            - generic [ref=e79]:
+              - generic [ref=e80]: Node.js
+              - generic [ref=e81]: Vite
+              - generic [ref=e82]: GitHub
+              - generic [ref=e83]: cPanel
+              - generic [ref=e84]: Webflow
+              - generic [ref=e85]: Shopify
+              - generic [ref=e86]: Hardhat
+    - generic [ref=e88]:
+      - generic [ref=e90]:
+        - paragraph [ref=e91]: // selected work
+        - heading "What I've Built" [level=2] [ref=e92]
+      - generic [ref=e93]:
+        - generic [ref=e94]:
+          - generic [ref=e95]:
+            - generic [ref=e96]:
+              - img "Football Odds Assistant" [ref=e97]
+              - generic [ref=e98]:
+                - link "View Live ↗" [ref=e99] [cursor=pointer]:
+                  - /url: https://kanjibai.vercel.app
+                - button "About Project" [ref=e100] [cursor=pointer]
+            - generic [ref=e101]:
+              - paragraph [ref=e102]: Backend Application
+              - heading "Football Odds Assistant" [level=3] [ref=e103]
+              - paragraph [ref=e104]: A Server-side recommendation engine designed to identify value bets across major football leagues using a predefined algorithm.
+          - generic [ref=e106]:
+            - generic [ref=e107]: Vue 3
+            - generic [ref=e108]: Python
+            - generic [ref=e109]: APIs
+            - generic [ref=e110]: SPA
+            - generic [ref=e111]: CI
+        - generic [ref=e112]:
+          - generic [ref=e113]:
+            - generic [ref=e114]:
+              - img "Risk Management Calculator" [ref=e115]
+              - generic [ref=e116]:
+                - link "View Live ↗" [ref=e117] [cursor=pointer]:
+                  - /url: https://forex-calculator.netlify.app
+                - button "About Project" [ref=e118] [cursor=pointer]
+            - generic [ref=e119]:
+              - paragraph [ref=e120]: Frontend Tool
+              - heading "Risk Management Calculator" [level=3] [ref=e121]
+              - paragraph [ref=e122]: A calculator built for traders to estimate risk before deploying capital into the markets.
+          - generic [ref=e124]:
+            - generic [ref=e125]: Bootstrap
+            - generic [ref=e126]: APIs
+            - generic [ref=e127]: CDNs
+            - generic [ref=e128]: Trading
+        - generic [ref=e129]:
+          - generic [ref=e130]:
+            - generic [ref=e131]:
+              - img "MojaCoin" [ref=e132]
+              - generic [ref=e133]:
+                - link "View Live ↗" [ref=e134] [cursor=pointer]:
+                  - /url: https://testnet.bscscan.com/token/0xc9b622b621d57fef2b077e4850eb7cca10659be8#transactions
+                - button "About Project" [ref=e135] [cursor=pointer]
+            - generic [ref=e136]:
+              - paragraph [ref=e137]: Smart Contract (web3)
+              - heading "MojaCoin" [level=3] [ref=e138]
+              - paragraph [ref=e139]: BEP20 token deployed on Binance Smart Chain with custom tokenomics. Built using Solidity and Hardhat with full EVM compatibility.
+          - generic [ref=e141]:
+            - generic [ref=e142]: Solidity
+            - generic [ref=e143]: Hardhat
+            - generic [ref=e144]: BEP20
+            - generic [ref=e145]: DeFi
+    - link "Like what you see? Let's talk →" [ref=e146] [cursor=pointer]:
+      - /url: "#contact"
+    - generic [ref=e148]:
+      - generic [ref=e149]:
+        - paragraph [ref=e150]: // how it works
+        - heading "My Process" [level=2] [ref=e151]
+      - generic [ref=e152]:
+        - generic [ref=e153]:
+          - generic [ref=e154]: "01"
+          - heading "Ideation" [level=3] [ref=e155]
+          - paragraph [ref=e156]: This could be a problem I or someone else is facing, or a moment of inspiration. Research is done to find if an alternative exists or if the situation is unique.
+        - generic [ref=e157]:
+          - generic [ref=e158]: "02"
+          - heading "Scope & Planning" [level=3] [ref=e159]
+          - paragraph [ref=e160]: First I validate the idea with a small prototype or proof of concept, followed by mapping out the architecture, stack, and timeline. This is to have a clear plan and point of reference.
+        - generic [ref=e161]:
+          - generic [ref=e162]: "03"
+          - heading "Building & Refining" [level=3] [ref=e163]
+          - paragraph [ref=e164]: Here is where the fun (and stress) happens. Each planned (and unplanned) feature is built, tested, and iterated upon until the product is ready for launch.
+        - generic [ref=e165]:
+          - generic [ref=e166]: "04"
+          - heading "Launch" [level=3] [ref=e167]
+          - paragraph [ref=e168]: Finally, the product is launched and made available to users.
+    - generic [ref=e170]:
+      - generic [ref=e171]:
+        - paragraph [ref=e172]: // Services
+        - heading "What I do for my clients" [level=2] [ref=e173]
+      - generic [ref=e174]:
+        - generic [ref=e176]:
+          - paragraph [ref=e177]: "01"
+          - heading "Websites & Applications" [level=3] [ref=e178]
+          - paragraph [ref=e179]: From landing pages to full scale applications — clean code, fast servers, and production-ready deploys.
+        - generic [ref=e181]:
+          - paragraph [ref=e182]: "02"
+          - heading "eCommerce Solutions" [level=3] [ref=e183]
+          - paragraph [ref=e184]: Sell your products online with a custom storefront, payment gateway, and inventory management system.
+        - generic [ref=e186]:
+          - paragraph [ref=e187]: "03"
+          - heading "dApp & Smart Contracts" [level=3] [ref=e188]
+          - paragraph [ref=e189]: EVM-compatible smart contracts, DeFi protocols, and NFT platforms audited and deployed on mainnet.
+        - generic [ref=e191]:
+          - paragraph [ref=e192]: "04"
+          - heading "Maintenance and Support" [level=3] [ref=e193]
+          - paragraph [ref=e194]: Ongoing maintenance, updates, and technical support to ensure your digital assets remain secure and performant.
+    - generic [ref=e196]:
+      - generic [ref=e197]:
+        - paragraph [ref=e198]: // pricing
+        - heading "Pricing" [level=2] [ref=e199]
+      - generic [ref=e200]:
+        - generic [ref=e201]:
+          - heading "Website" [level=3] [ref=e202]
+          - generic [ref=e203]:
+            - paragraph [ref=e204]: A simple, responsive website for your business or personal use.
+            - paragraph [ref=e205]: Entrepreneurs, and businesses who want to establish an online presence with a professional website.
+          - generic [ref=e206]:
+            - generic [ref=e207]: 400,000
+            - generic [ref=e208]: TZS
+          - list [ref=e209]:
+            - listitem [ref=e210]:
+              - generic [ref=e211]: ✓
+              - text: Custom landing page (up to 5 pages)
+            - listitem [ref=e212]:
+              - generic [ref=e213]: ✓
+              - text: Custom .co.tz Domain + Emails
+            - listitem [ref=e214]:
+              - generic [ref=e215]: ✓
+              - text: 1yr Hosting + Maintenance
+            - listitem [ref=e216]:
+              - generic [ref=e217]: ✓
+              - text: Contact form + Chat on WhatsApp
+            - listitem [ref=e218]:
+              - generic [ref=e219]: ✓
+              - text: Search Engine Optimization
+          - link "Get Started" [ref=e220] [cursor=pointer]:
+            - /url: https://snippe.me/pay/website
+        - generic [ref=e221]:
+          - heading "eCommerce" [level=3] [ref=e222]
+          - generic [ref=e223]:
+            - paragraph [ref=e224]: A fully-featured shop for selling products and managing inventory.
+            - paragraph [ref=e225]: Entrepreneurs, and businesses who are selling or want to sell online. A centralized platform for inventory, orders, and customer relations.
+          - generic [ref=e226]:
+            - generic [ref=e227]: 1,800,000
+            - generic [ref=e228]: TZS
+          - list [ref=e229]:
+            - listitem [ref=e230]:
+              - generic [ref=e231]: ✓
+              - text: All core Website features included
+            - listitem [ref=e232]:
+              - generic [ref=e233]: ✓
+              - text: Secure Payment Gateway integration
+            - listitem [ref=e234]:
+              - generic [ref=e235]: ✓
+              - text: Shopping Cart & Checkout system
+            - listitem [ref=e236]:
+              - generic [ref=e237]: ✓
+              - text: Inventory, Order Tracking & Discount systems
+            - listitem [ref=e238]:
+              - generic [ref=e239]: ✓
+              - text: Automated customer invoice & email notifications
+          - link "Get Started" [ref=e240] [cursor=pointer]:
+            - /url: https://snippe.me/p/NH2IAJVA9L
+        - generic [ref=e241]:
+          - heading "Web Application" [level=3] [ref=e242]
+          - generic [ref=e243]:
+            - paragraph [ref=e244]: A responsive application built to meet your specific business needs.
+            - paragraph [ref=e245]: Entrepreneurs, and businesses needing internal tools for process automation or customer-facing applications.
+          - generic [ref=e246]:
+            - generic [ref=e247]: 3,200,000
+            - generic [ref=e248]: TZS
+          - list [ref=e249]:
+            - listitem [ref=e250]:
+              - generic [ref=e251]: ✓
+              - text: All core Website features included
+            - listitem [ref=e252]:
+              - generic [ref=e253]: ✓
+              - text: Secure Authentication (Login/Signup)
+            - listitem [ref=e254]:
+              - generic [ref=e255]: ✓
+              - text: Interactive Dashboard + Database
+            - listitem [ref=e256]:
+              - generic [ref=e257]: ✓
+              - text: Business Logic & API Integration
+            - listitem [ref=e258]:
+              - generic [ref=e259]: ✓
+              - text: Admin Panel (for managing users, content, and data)
+          - link "Get Started" [ref=e260] [cursor=pointer]:
+            - /url: https://snippe.me/p/MpEd3XUxtf
+        - generic [ref=e261]:
+          - generic [ref=e262]:
+            - heading "Custom Request" [level=3] [ref=e263]
+            - paragraph [ref=e264]: Have a unique project in mind? Let's discuss your requirements and I'll provide a tailored quote.
+          - link "Contact for Quote" [ref=e265] [cursor=pointer]:
+            - /url: "#contact"
+    - generic [ref=e267]:
+      - generic [ref=e268]:
+        - paragraph [ref=e269]: // let's work together
+        - heading "Have a project in mind?" [level=2] [ref=e270]: Have a projectin mind?
+        - paragraph [ref=e271]: I'm currently accepting projects. If you have an idea or application to build — reach out and I'll respond within 24 hours.
+        - generic [ref=e272]:
+          - link "Chat on WhatsApp" [ref=e274] [cursor=pointer]:
+            - /url: https://wa.me/255782506217
+          - generic [ref=e275]:
+            - paragraph [ref=e276]: Direct Email
+            - link "hello@wbalaile.is-a.dev" [ref=e277] [cursor=pointer]:
+              - /url: mailto:wbalaile@live.com
+          - generic [ref=e278]:
+            - paragraph [ref=e279]: Social Profiles
+            - generic [ref=e280]:
+              - link "GitHub ↗" [ref=e281] [cursor=pointer]:
+                - /url: https://github.com/6alaile
+              - link "LinkedIn ↗" [ref=e282] [cursor=pointer]:
+                - /url: https://linkedin.com/in/william-balaile-55426b133/
+          - paragraph [ref=e284]:
+            - link "Download CV ↗" [ref=e285] [cursor=pointer]:
+              - /url: https://docs.google.com/document/d/1ADMzC5L1fUVMkEg-bf3I2wKTetkShk4ni8JhKbOBE1s/edit?usp=sharing
+      - generic [ref=e287]:
+        - generic [ref=e288]:
+          - generic [ref=e289]: Your Name
+          - textbox "William Balaile" [ref=e290]: Test Submission
+        - generic [ref=e291]:
+          - generic [ref=e292]: Email Address
+          - textbox "you@example.com" [ref=e293]: test@example.com
+        - generic [ref=e294]:
+          - generic [ref=e295]: Project Type
+          - combobox [ref=e296] [cursor=pointer]:
+            - option "Select a service" [disabled]
+            - option "Website"
+            - option "Web Application" [selected]
+            - option "Trading Platform Tool"
+            - option "web3 dApp (decentralized application)"
+            - option "Other; specify below"
+        - generic [ref=e297]:
+          - generic [ref=e298]: Message
+          - textbox "Tell me about your project scope and timeline..." [active] [ref=e299]: Web3Forms migration test from opencode.
+        - button "Send Message →" [ref=e300] [cursor=pointer]
+  - contentinfo [ref=e301]:
+    - generic [ref=e302]:
+      - link "WB." [ref=e303] [cursor=pointer]:
+        - /url: "#"
+      - paragraph [ref=e304]: © 2026 William Balaile
+      - generic [ref=e305]:
+        - link "hello@wbalaile.is-a.dev" [ref=e306] [cursor=pointer]:
+          - /url: mailto:wbalaile@live.com
+        - link "GitHub" [ref=e307] [cursor=pointer]:
+          - /url: https://github.com/6alaile
+        - link "LinkedIn" [ref=e308] [cursor=pointer]:
+          - /url: https://linkedin.com/in/william-balaile-55426b133/
+        - link "↑ Top" [ref=e309] [cursor=pointer]:
+          - /url: "#"

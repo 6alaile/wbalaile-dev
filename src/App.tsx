@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
-import { useForm, ValidationError } from '@formspree/react'
+import { useState, useEffect, useRef, type FormEvent } from 'react'
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
@@ -857,7 +856,7 @@ function Pricing() {
               </p>
             </div>
             <a
-              href="#contact"
+              href="https://calendly.com/wbalaile-dev/discovery-call"
               style={MONO}
               className="inline-block text-center text-xs tracking-widest uppercase bg-[#00e87a] text-[#080808] px-8 py-3 font-bold hover:bg-[#00ff88] transition-all duration-150 transform hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
             >
@@ -870,8 +869,68 @@ function Pricing() {
   )
 }
 
+const JOTFORM_FORM_ID = '262476776596074'
+const JOTFORM_SUBMIT_URL = `https://submit.jotform.com/submit/${JOTFORM_FORM_ID}`
+const JOTFORM_FIELD_MAP: Record<string, string> = {
+  name: 'q4_q4_fullname2[first]',
+  email: 'q5_q5_email3',
+  type: 'q6_q6_dropdown4',
+  message: 'q8_q8_textarea6',
+}
+
 function Contact() {
-  const [state, handleSubmit] = useForm('mppzaaon')
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'succeeded'>('idle')
+  const [error, setError] = useState<string | null>(null)
+  const formRef = useRef<HTMLFormElement>(null)
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    if (status === 'submitting') return
+
+    const formData = new FormData(event.currentTarget)
+    if (formData.get('botcheck')) return
+
+    setStatus('submitting')
+    setError(null)
+
+    const payload = new FormData()
+    payload.append('formID', JOTFORM_FORM_ID)
+    payload.append('simple_spc', `${JOTFORM_FORM_ID}-${JOTFORM_FORM_ID}`)
+    payload.append('website', '')
+    for (const [key, qField] of Object.entries(JOTFORM_FIELD_MAP)) {
+      const value = formData.get(key)
+      if (value) payload.append(qField, value)
+    }
+
+    try {
+      const response = await fetch(JOTFORM_SUBMIT_URL, {
+        method: 'POST',
+        body: payload,
+      })
+      const text = await response.text()
+      const snippet = text.slice(0, 1000)
+      console.log('[Jotform] status:', response.status, '| ok:', response.ok)
+      console.log('[Jotform] snippet:', snippet)
+      const isErrorPage =
+        /class="form-line-error"|class="error-navigation"|Sorry,\s*you\s*have\s*already|Only one entry is allowed\./i.test(text)
+      console.log('[Jotform] isErrorPage:', isErrorPage)
+
+      if (response.ok && !isErrorPage) {
+        setStatus('succeeded')
+        formRef.current?.reset()
+      } else if (response.status >= 500) {
+        setError('The form service is temporarily unavailable. Please try again.')
+        setStatus('idle')
+      } else {
+        setError('Something went wrong. Please check your details and try again.')
+        setStatus('idle')
+      }
+    } catch (e) {
+      console.error('[Jotform] catch:', e)
+      setError('Network error. Please try again.')
+      setStatus('idle')
+    }
+  }
 
   return (
     <section id="contact" className="px-6 lg:px-8 py-20 md:py-28 border-b border-white/[0.08]">
@@ -958,7 +1017,7 @@ function Contact() {
         </div>
 
         <div className="md:col-span-7 bg-[#111111] p-8 md:p-10 border border-white/[0.08]">
-          {state.succeeded ? (
+          {status === 'succeeded' ? (
             <div className="border border-[#00e87a]/40 bg-[#00e87a]/10 p-10 text-center">
               <p style={MONO} className="text-[#00e87a] text-sm tracking-widest uppercase mb-3 font-bold">
                 Message Sent Successfully
@@ -968,7 +1027,7 @@ function Contact() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label style={MONO} className="block text-xs tracking-widest uppercase text-[#88847f] mb-2">
                   Your Name
@@ -980,7 +1039,6 @@ function Contact() {
                   placeholder="William Balaile"
                   className="w-full bg-[#161616] border border-white/[0.1] text-[#f0ede8] px-4 py-3.5 text-sm placeholder:text-[#444] focus:outline-none focus:border-[#00e87a] transition-colors font-light"
                 />
-                <ValidationError field="name" errors={state.errors} className="text-red-400 text-xs mt-1" />
               </div>
 
               <div>
@@ -994,7 +1052,6 @@ function Contact() {
                   placeholder="you@example.com"
                   className="w-full bg-[#161616] border border-white/[0.1] text-[#f0ede8] px-4 py-3.5 text-sm placeholder:text-[#444] focus:outline-none focus:border-[#00e87a] transition-colors font-light"
                 />
-                <ValidationError field="email" errors={state.errors} className="text-red-400 text-xs mt-1" />
               </div>
 
               <div>
@@ -1006,11 +1063,12 @@ function Contact() {
                   className="w-full bg-[#161616] border border-white/[0.1] text-[#f0ede8] px-4 py-3.5 text-sm focus:outline-none focus:border-[#00e87a] transition-colors font-light appearance-none cursor-pointer"
                 >
                   <option value="" disabled>Select a service</option>
-                  <option>Website</option>
-                  <option>Web Application</option>
-                  <option>Trading Platform Tool</option>
-                  <option>web3 dApp (decentralized application)</option>
-                  <option>Other; specify below</option>
+                  <option value="Web App">Web App</option>
+                  <option value="Landing Page">Landing Page</option>
+                  <option value="E-commerce">E-commerce</option>
+                  <option value="API / Backend">API / Backend</option>
+                  <option value="Full Stack Build">Full Stack Build</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
 
@@ -1025,18 +1083,25 @@ function Contact() {
                   placeholder="Tell me about your project scope and timeline..."
                   className="w-full bg-[#161616] border border-white/[0.1] text-[#f0ede8] px-4 py-3.5 text-sm placeholder:text-[#444] focus:outline-none focus:border-[#00e87a] transition-colors font-light resize-none"
                 />
-                <ValidationError field="message" errors={state.errors} className="text-red-400 text-xs mt-1" />
               </div>
 
-              <ValidationError errors={state.errors} className="text-red-400 text-sm" />
+              <input
+                type="checkbox"
+                name="botcheck"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                style={{ display: 'none' }}
+              />
+              {error && <p className="text-red-400 text-sm">{error}</p>}
 
               <button
                 type="submit"
-                disabled={state.submitting}
+                disabled={status === 'submitting'}
                 style={MONO}
                 className="w-full bg-[#00e87a] text-[#080808] py-4 text-xs tracking-widest uppercase font-bold hover:bg-[#00ff88] transition-all duration-150 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {state.submitting ? 'Sending...' : 'Send Message →'}
+                {status === 'submitting' ? 'Sending...' : 'Send Message →'}
               </button>
             </form>
           )}
